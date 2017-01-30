@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACC,mBAAK;EACJ,OAAO,EAAE,KAAK",
+"sources": ["passgen.scss"],
+"names": [],
+"file": "passgen.css"
+}
