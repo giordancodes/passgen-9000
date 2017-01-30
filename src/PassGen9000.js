@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div>
         {/*<h1>PassGen 9000</h1>*/}
-        <section className="">
+        <section className="intro">
       		<h3>start with your own word/phrase?</h3>
         	<label htmlFor="custom-no">
         		no, thank you
