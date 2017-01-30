@@ -31,6 +31,7 @@ class PassGen9000 extends Component {
         						checked={ this.state.distinctWord === true }
         						onChange={ this.setDistinct } />
 					</label>
+					<hr/>
         	<form>
 
         		{ 
@@ -56,9 +57,9 @@ class PassGen9000 extends Component {
         							id="length" />
         			{ this.state.form.length }
         		</label>
-        		<label htmlFor="">
+        		<label htmlFor="strength">
         			<input type="text"
-        			id="" />
+        			id="strength" />
         		</label>
         	</form>
         </section>
