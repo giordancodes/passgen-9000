@@ -5,39 +5,48 @@ class App extends Component {
 	constructor(){
 		super();
 		this.state={
-			customWord: false
+			distinctWord: false
 		}
 	}
   render() {
     return (
-      <div>
+      <div className="wrapper">
         {/*<h1>PassGen 9000</h1>*/}
         <section className="intro">
       		<h3>start with your own word/phrase?</h3>
-        	<label htmlFor="custom-no">
+        	<label htmlFor="distinct-no">
         		no, thank you
         		<input 	type="radio"
-        						id="custom-no"
-        						checked={ this.state.customWord === false }
-        						onChange={ this.setCustom } />
+        						id="distinct-no"
+        						checked={ this.state.distinctWord === false }
+        						onChange={ this.setDistinct } />
 					</label>
-					<label htmlFor="custom-yes">
+					<label htmlFor="distinct-yes">
 						yes, please
         		<input 	type="radio"
-        						id="custom-yes"
-        						checked={ this.state.customWord === true }
-        						onChange={ this.setCustom } />
+        						id="distinct-yes"
+        						checked={ this.state.distinctWord === true }
+        						onChange={ this.setDistinct } />
 					</label>
         	<form>
+
+        		{ this.state.distinctWord ?
+
+        			<label htmlFor="distinct">
+	        			distinct word/phrase
+	        			<input 	type="text"
+	        							id="distinct" />
+	        		</label> 
+
+        		  : null }
+
         		<label htmlFor="">
-        			custom word/phrase
-        			<input type="text"/>
+        			<input type="text"
+        			id="" />
         		</label>
         		<label htmlFor="">
-        			<input type="text"/>
-        		</label>
-        		<label htmlFor="">
-        			<input type="text"/>
+        			<input type="text"
+        			id="" />
         		</label>
         	</form>
         </section>
@@ -49,10 +58,10 @@ class App extends Component {
   	
   }
 
-  setCustom = (e) => {
-  	let customWord = this.state.customWord;
-  	customWord = !customWord;
-  	this.setState({ customWord })
+  setDistinct = (e) => {
+  	let distinctWord = this.state.distinctWord;
+  	distinctWord = !distinctWord;
+  	this.setState({ distinctWord })
   }
 
   updateField = (e) =>{
