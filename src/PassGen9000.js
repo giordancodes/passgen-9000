@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './passgen.css';
 
-class App extends Component {
+class PassGen9000 extends Component {
 	constructor(){
 		super();
 		this.state={
-			distinctWord: false
+			distinctWord: false,
+			form:{
+				length: 8
+			}
 		}
 	}
   render() {
@@ -30,19 +33,28 @@ class App extends Component {
 					</label>
         	<form>
 
-        		{ this.state.distinctWord ?
+        		{ 
+        			this.state.distinctWord ?
 
-        			<label htmlFor="distinct">
-	        			distinct word/phrase
-	        			<input 	type="text"
-	        							id="distinct" />
-	        		</label> 
+	        			<label htmlFor="distinct">
+		        			distinct word/phrase
+		        			<input 	type="text"
+		        							id="distinct"
+		        							onChange={ this.updateField } />
+		        		</label> 
 
-        		  : null }
+        		  : null 
+        		}
 
-        		<label htmlFor="">
-        			<input type="text"
-        			id="" />
+        		<label htmlFor="length">
+        			length of password
+        			<input 	type="range"
+        							min="8"
+        							max="32"
+        							value={ this.state.form.length }
+        							onChange={ this.updateField }
+        							id="length" />
+        			{ this.state.form.length }
         		</label>
         		<label htmlFor="">
         			<input type="text"
@@ -72,4 +84,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default PassGen9000;
