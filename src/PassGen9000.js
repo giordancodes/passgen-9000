@@ -15,18 +15,18 @@ class PassGen9000 extends Component {
   render() {
     return (
       <div className="wrapper">
-        {/*<h1>PassGen 9000</h1>*/}
+        {<h1>PassGen 9000</h1>}
         <section className="intro">
       		<h3>start with your own word/phrase?</h3>
         	<label htmlFor="distinct-no">
-        		no, thank you
+        		<p>no, thank you</p>
         		<input 	type="radio"
         						id="distinct-no"
         						checked={ this.state.distinctWord === false }
         						onChange={ this.setDistinct } />
 					</label>
 					<label htmlFor="distinct-yes">
-						yes, please
+						<p>yes, please</p>
         		<input 	type="radio"
         						id="distinct-yes"
         						checked={ this.state.distinctWord === true }
@@ -34,40 +34,44 @@ class PassGen9000 extends Component {
 					</label>
 					<hr/>
         	<form>
-
-        		{ 
-        			this.state.distinctWord ?
-
-	        			<label htmlFor="distinct">
-		        			distinct word/phrase
-		        			<input 	type="text"
-		        							id="distinct"
-		        							onChange={ this.updateField } />
-		        		</label> 
-
-        		  : null 
-        		}
-
         		<label htmlFor="length">
-        			length of password
-        			<input 	type="range"
-        							min="8"
-        							max="32"
-        							value={ this.state.form.length }
-        							onChange={ this.updateField }
-        							id="length" />
-        			{ this.state.form.length }
+        			<p>length of password</p>
+        			<div className="range-count">
+                <input   type="range"
+                        min="8"
+                        max="32"
+                        value={ this.state.form.length }
+                        onChange={ this.updateField }
+                        id="length" />
+                <p>{ this.state.form.length }</p>
+              </div>
         		</label>
         		<label htmlFor="strength">
-            password robustness
-        			<input  type="range"
-                      min="8"
-                      max="32"
-                      value={ this.state.form.strength }
-                      onChange={ this.updateField }
-                			id="strength" />
-              { this.state.form.strength }
+            <p>password robustness</p>
+        			<div className="range-count">
+                <input  type="range"
+                        min="8"
+                        max="32"
+                        value={ this.state.form.strength }
+                        onChange={ this.updateField }
+                        id="strength" />
+                <p>{ this.state.form.strength }</p>
+              </div>
         		</label>
+
+              { 
+                this.state.distinctWord ?
+
+                  <label htmlFor="distinct">
+                    <p>distinct word/phrase</p>
+                    <input  type="text"
+                            id="distinct"
+                            onChange={ this.updateField } />
+                  </label> 
+
+                : null 
+              }
+
         	</form>
         </section>
       </div>

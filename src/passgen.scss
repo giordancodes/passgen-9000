@@ -1,6 +1,10 @@
+$varela: 'Varela Round', sans-serif;
+$lato: 'Lato', sans-serif;
+
 // PARENT ELEMENTS
 html, body{
-	background: #aaa;
+	background: #444;
+	font-family: $lato;
 }
 label{
 	display: block;
@@ -12,12 +16,42 @@ label{
 	padding: 0 20px;
 }
 
+h1{
+	font-size: 13vw;
+	color: #444;
+	text-align: center;
+	text-shadow: -2px -2px lime;
+	margin: 10px auto;
+	font-family: $varela;
+}
+h3{
+	font-size: 5vw;
+	font-family: $lato;
+	font-weight: 100;
+	color: white;
+}
 // SECTIONS
 section.intro{
-	h3{
-		font-size: 5.5vw;
-		color: #aaa;
-		text-shadow: -2px -2px lime;
-		margin: 10px auto;
+	label{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		p{
+			font-size: 4vw;
+		}
+	}
+	.range-count{
+		display: inline-flex;
+		&>*{
+			padding: 0 8px 0 10px;
+		}
+		p{
+			width: 24px;
+			text-align: right;
+		}
 	}
 }
