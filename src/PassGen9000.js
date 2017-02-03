@@ -17,26 +17,11 @@ class PassGen9000 extends Component {
       <div className="wrapper">
         {<h1>PassGen 9000</h1>}
         <section className="intro">
-      		<h3>start with your own word/phrase?</h3>
-        	<label htmlFor="distinct-no">
-        		<p>no, thank you</p>
-        		<input 	type="radio"
-        						id="distinct-no"
-        						checked={ this.state.distinctWord === false }
-        						onChange={ this.setDistinct } />
-					</label>
-					<label htmlFor="distinct-yes">
-						<p>yes, please</p>
-        		<input 	type="radio"
-        						id="distinct-yes"
-        						checked={ this.state.distinctWord === true }
-        						onChange={ this.setDistinct } />
-					</label>
-					<hr/>
-        	<form>
-        		<label htmlFor="length">
-        			<p>length of password</p>
-        			<div className="range-count">
+      		
+          <form>
+            <label htmlFor="length">
+              <p>length of password</p>
+              <div className="range-count">
                 <input   type="range"
                         min="8"
                         max="32"
@@ -45,10 +30,10 @@ class PassGen9000 extends Component {
                         id="length" />
                 <p>{ this.state.form.length }</p>
               </div>
-        		</label>
-        		<label htmlFor="strength">
+            </label>
+            <label htmlFor="strength">
             <p>password robustness</p>
-        			<div className="range-count">
+              <div className="range-count">
                 <input  type="range"
                         min="8"
                         max="32"
@@ -57,20 +42,38 @@ class PassGen9000 extends Component {
                         id="strength" />
                 <p>{ this.state.form.strength }</p>
               </div>
-        		</label>
+            </label>
 
-              { 
-                this.state.distinctWord ?
+					<hr/>
 
-                  <label htmlFor="distinct">
-                    <p>distinct word/phrase</p>
-                    <input  type="text"
-                            id="distinct"
-                            onChange={ this.updateField } />
-                  </label> 
+          <h3>start with your own word/phrase?</h3>
+          <label htmlFor="distinct-no">
+            <p>no, thank you</p>
+            <input  type="radio"
+                    id="distinct-no"
+                    checked={ this.state.distinctWord === false }
+                    onChange={ this.setDistinct } />
+          </label>
+          <label htmlFor="distinct-yes">
+            <p>yes, please</p>
+            <input  type="radio"
+                    id="distinct-yes"
+                    checked={ this.state.distinctWord === true }
+                    onChange={ this.setDistinct } />
+          </label>
+          
+          { 
+            this.state.distinctWord ?
 
-                : null 
-              }
+              <label htmlFor="distinct">
+                <p>distinct word/phrase</p>
+                <input  type="text"
+                        id="distinct"
+                        onChange={ this.updateField } />
+              </label> 
+
+            : null 
+          }
 
         	</form>
         </section>

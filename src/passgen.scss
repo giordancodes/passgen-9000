@@ -25,13 +25,22 @@ h1{
 	font-family: $varela;
 }
 h3{
-	font-size: 5vw;
+	font-size: 2em;
 	font-family: $lato;
 	font-weight: 100;
 	color: white;
+	margin: 0;
+}
+
+p{
+	color: #111;
 }
 // SECTIONS
 section.intro{
+	hr{
+		color: #339;
+		border-width: .8vh;
+	}
 	label{
 		display: -webkit-flex;
 		display: -moz-flex;
@@ -41,7 +50,7 @@ section.intro{
 		align-items: center;
 		justify-content: space-between;
 		p{
-			font-size: 4vw;
+			font-size: 1.8em;
 		}
 	}
 	.range-count{
@@ -53,5 +62,5 @@ section.intro{
 			width: 24px;
 			text-align: right;
 		}
-	}
+	} 
 }
