@@ -7,7 +7,8 @@ class PassGen9000 extends Component {
 		this.state={
 			distinctWord: false,
 			form:{
-				length: 8
+        length: 8,
+				strength: 8
 			}
 		}
 	}
@@ -58,8 +59,14 @@ class PassGen9000 extends Component {
         			{ this.state.form.length }
         		</label>
         		<label htmlFor="strength">
-        			<input type="text"
-        			id="strength" />
+            password robustness
+        			<input  type="range"
+                      min="8"
+                      max="32"
+                      value={ this.state.form.strength }
+                      onChange={ this.updateField }
+                			id="strength" />
+              { this.state.form.strength }
         		</label>
         	</form>
         </section>

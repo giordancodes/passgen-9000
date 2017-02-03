@@ -1,9 +1,23 @@
+// PARENT ELEMENTS
+html, body{
+	background: #aaa;
+}
+label{
+	display: block;
+}
+
+// WRAPPER
 .wrapper{
 	margin: 0 auto;
 	padding: 0 20px;
 }
+
+// SECTIONS
 section.intro{
-	label{
-		display: block;
+	h3{
+		font-size: 5.5vw;
+		color: #aaa;
+		text-shadow: -2px -2px lime;
+		margin: 10px auto;
 	}
-} 
+}
