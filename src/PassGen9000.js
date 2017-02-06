@@ -15,7 +15,7 @@ class PassGen9000 extends Component {
   render() {
     return (
       <div className="wrapper">
-        {<h1>PassGen 9000</h1>}
+        {/*<h1>PassGen 9000</h1>*/}
         <section className="intro">
       		
           <form>
