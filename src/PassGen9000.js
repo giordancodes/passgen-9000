@@ -46,7 +46,7 @@ class PassGen9000 extends Component {
 
 					<hr/>
 
-          <h3>start with your own word/phrase?</h3>
+          <h3>use your own word/phrase?</h3>
           <label htmlFor="distinct-no">
             <p>no, thank you</p>
             <input  type="radio"
