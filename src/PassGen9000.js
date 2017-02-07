@@ -15,14 +15,14 @@ class PassGen9000 extends Component {
   render() {
     return (
       <div className="wrapper">
-        {/*<h1>PassGen 9000</h1>*/}
+        {<h1>PassGen 9000</h1>}
         <section className="intro">
       		
           <form>
             <label htmlFor="length">
               <p>length of password</p>
               <div className="range-count">
-                <input   type="range"
+                <input  type="range"
                         min="8"
                         max="32"
                         value={ this.state.form.length }
