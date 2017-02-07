@@ -54,6 +54,9 @@ section.intro{
 			font-size: 1.8em;
 		}
 	}
+	label.distinct-no, label.distinct-yes{
+		width: 50%;
+	}
 	.range-count{
 		display: inline-flex;
 		&>*{

@@ -44,8 +44,6 @@ class PassGen9000 extends Component {
               </div>
             </label>
 
-					<hr/>
-
           <h3>use your own word/phrase?</h3>
           <label htmlFor="distinct-no">
             <p>no, thank you</p>

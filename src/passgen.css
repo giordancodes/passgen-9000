@@ -41,6 +41,8 @@ section.intro label {
   justify-content: space-between; }
   section.intro label p {
     font-size: 1.8em; }
+section.intro label.distinct-no, section.intro label.distinct-yes {
+  width: 50%; }
 section.intro .range-count {
   display: inline-flex; }
   section.intro .range-count > * {
