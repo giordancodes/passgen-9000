@@ -7,6 +7,8 @@
 
 // take any inputted text for custom password
 
+// if no inputted text, use adjective+noun password building
+
 // evaluate if length is less than inputted text, or if additional chars are needed
 
 // grab any needed words from SeedWords.js, pref one adj + one noun

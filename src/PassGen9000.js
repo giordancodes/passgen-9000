@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import SeedWords from './SeedWords.json';
+import Substitutions from './Substitutions.json';
 import './passgen.css';
 
 class PassGen9000 extends Component {
@@ -115,6 +118,8 @@ class PassGen9000 extends Component {
     l = this.state.form.length;
     r = this.state.form.robustness;
     distinctWord = this.state.distinctWord;
+
+
 
   }
 
