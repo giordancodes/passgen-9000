@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SeedWords from './SeedWords.json';
 import Substitutions from './Substitutions.json';
+import Helpers from './Helpers';
 import './passgen.css';
 
 class PassGen9000 extends Component {
@@ -115,12 +116,31 @@ class PassGen9000 extends Component {
   genPass = (e, l, r, distinctWord) =>{
     e.preventDefault();
 
+    let result;
     l = this.state.form.length;
     r = this.state.form.robustness;
     distinctWord = this.state.distinctWord;
 
 
 
+    this.setState({ generatedResult: result });
+
+    console.log(SeedWords["sfw-adj"]);
+    console.log(this.slugify("--sadjas--fr-jf-cd9-"));
+
+  }
+
+  slugify = (text) =>{
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')     // Replace spaces with -
+      .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+      .replace(/\-\-+/g, '-')   // Replace multiple - with single -
+      .replace(/^-+/, '')       // Trim - from start of text
+      .replace(/-+$/, '');      // Trim - from end of text
+  }
+
+  rando(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
   }
 
 }
