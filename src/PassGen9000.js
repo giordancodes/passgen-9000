@@ -8,8 +8,10 @@ class PassGen9000 extends Component {
 			distinctWord: false,
 			form:{
         length: 8,
-				strength: 8
-			}
+				robustness: 8
+			},
+      generatedResult: null
+
 		}
 	}
   render() {
@@ -31,16 +33,16 @@ class PassGen9000 extends Component {
                 <p>{ this.state.form.length }</p>
               </div>
             </label>
-            <label htmlFor="strength">
+            <label htmlFor="robustness">
             <p>password robustness</p>
               <div className="range-count">
                 <input  type="range"
                         min="8"
                         max="32"
-                        value={ this.state.form.strength }
+                        value={ this.state.form.robustness }
                         onChange={ this.updateField }
-                        id="strength" />
-                <p>{ this.state.form.strength }</p>
+                        id="robustness" />
+                <p>{ this.state.form.robustness }</p>
               </div>
             </label>
 
@@ -72,8 +74,20 @@ class PassGen9000 extends Component {
 
             : null 
           }
-
+          <button onClick={ this.genPass } >
+            Generate
+          </button>
         	</form>
+        </section>
+        <section className="result">
+          {
+            this.state.generatedResult ?
+
+            <h4>{ this.state.generatedResult }</h4>
+
+            : null
+
+          }
         </section>
       </div>
     );
@@ -93,6 +107,15 @@ class PassGen9000 extends Component {
   	let form = this.state.form;
   	form[e.target.id] = e.target.value;
   	this.setState({form});
+  }
+
+  genPass = (e, l, r, distinctWord) =>{
+    e.preventDefault();
+
+    l = this.state.form.length;
+    r = this.state.form.robustness;
+    distinctWord = this.state.distinctWord;
+
   }
 
 }
