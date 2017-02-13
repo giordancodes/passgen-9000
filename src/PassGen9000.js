@@ -21,7 +21,7 @@ class PassGen9000 extends Component {
   render() {
     return (
       <div className="wrapper">
-        {<h1>PassGen 9000</h1>}
+        {/*<h1>PassGen 9000</h1>*/}
         <section className="intro">
       		
           <form>
@@ -120,12 +120,13 @@ class PassGen9000 extends Component {
     l = this.state.form.length;
     r = this.state.form.robustness;
     distinctWord = this.state.distinctWord;
-
+    let l2 = SeedWords["sfw-adj"].length;
 
 
     this.setState({ generatedResult: result });
-
+    console.log(this.rando(9));
     console.log(SeedWords["sfw-adj"]);
+    console.log(SeedWords["sfw-adj"][this.rando(l2)]);
     console.log(this.slugify("--sadjas--fr-jf-cd9-"));
 
   }
@@ -139,8 +140,10 @@ class PassGen9000 extends Component {
       .replace(/-+$/, '');      // Trim - from end of text
   }
 
-  rando(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+  rando(max) {
+    let min = 0;
+    max = max -1;
+    return Math.floor(Math.random() * (max - min) + min);
   }
 
 }
