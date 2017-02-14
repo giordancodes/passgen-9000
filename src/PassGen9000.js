@@ -42,7 +42,6 @@ class PassGen9000 extends Component {
             <h4> <Generated generatedResult={ this.state.generatedResult }/> </h4>
 
             : null
-
           }
         </section>
       </div>
