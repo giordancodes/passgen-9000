@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SeedWords from './SeedWords.json';
 import Substitutions from './Substitutions.json';
+import Generated from './Generated';
 import Helpers from './Helpers';
 import './passgen.css';
 
@@ -88,7 +89,7 @@ class PassGen9000 extends Component {
           {
             this.state.generatedResult ?
 
-            <h4>{ this.state.generatedResult }</h4>
+            <h4> <Generated generatedResult={ this.state.generatedResult }/> </h4>
 
             : null
 
@@ -120,15 +121,13 @@ class PassGen9000 extends Component {
     let robustnessDesc = this.state.robustnessDesc;
     let r = this.state.form.robustness;
 
-    console.log(r);
-
-    if (r === 1){
+    if (r == 1){
       robustnessDesc = "not bad";
-    } else if (r === 2){
+    } else if (r == 2){
       robustnessDesc = "pretty good";
-    } else if (r === 3){
+    } else if (r == 3){
       robustnessDesc = "strong like bull";
-    } else if (r === 4){
+    } else if (r == 4){
       robustnessDesc = "locked down";
     }
 
