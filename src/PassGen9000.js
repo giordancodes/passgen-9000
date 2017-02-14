@@ -39,7 +39,9 @@ class PassGen9000 extends Component {
           {
             this.state.generatedResult ?
 
-            <h4> <Generated generatedResult={ this.state.generatedResult }/> </h4>
+            <h4> 
+              <Generated generatedResult={ this.state.generatedResult }/>
+            </h4>
 
             : null
           }
@@ -95,10 +97,22 @@ class PassGen9000 extends Component {
     let seedAdj;
     let seedNoun;
 
-    while (l >= result.length){
-      result = `${result}${SeedWords["sfw-adj"][this.rando(adjLength)]}`;
-      result = `${result}${SeedWords["sfw-noun"][this.rando(nounLength)]}`;
-    }
+    generate: while (l > result.length){
+      let n = 1;
+
+      while (l > result.length){
+        if (n % 2 === 1){
+          result = `${result}${SeedWords["sfw-adj"][this.rando(adjLength)]}`;
+        } else {
+          result = `${result}${SeedWords["sfw-noun"][this.rando(nounLength)]}`;
+        }
+        n ++;
+        if (l < result.length){
+          result = "";
+        }
+      }
+    } 
+
 
     console.log(result, result.length);
     this.setState({ generatedResult: result });
@@ -109,6 +123,10 @@ class PassGen9000 extends Component {
   swapChar = (char) =>{
     
   }
+
+  isOdd = (num) =>{
+    return num % 2;
+  } 
 
   slugify = (text) =>{
     return text.toString().toLowerCase()

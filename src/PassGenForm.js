@@ -57,7 +57,7 @@ class PassGenForm extends Component{
 
 			    : null 
 			  }
-			  <button onClick={ this.genPass } >
+			  <button onClick={ this.props.genPass } >
 			    Generate
 			  </button>
 			</form>
