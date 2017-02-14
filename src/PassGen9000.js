@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SeedWords from './SeedWords.json';
 import Substitutions from './Substitutions.json';
+import PassGenForm from './PassGenForm';
 import Generated from './Generated';
 import Helpers from './Helpers';
 import './passgen.css';
@@ -26,64 +27,13 @@ class PassGen9000 extends Component {
         {/*<h1>PassGen 9000</h1>*/}
         <section className="intro">
       		
-          <form>
-            <label htmlFor="length">
-              <p>length of password</p>
-              <div className="range-count">
-                <input  type="range"
-                        min="8"
-                        max="32"
-                        value={ this.state.form.length }
-                        onChange={ this.updateField }
-                        id="length" />
-                <p>{ this.state.form.length }</p>
-              </div>
-            </label>
-            <label htmlFor="robustness">
-            <p>password robustness</p>
-              <div className="range-count">
-                <input  type="range"
-                        min="1"
-                        max="4"
-                        value={ this.state.form.robustness }
-                        onChange={ this.updateField }
-                        id="robustness" />
-                <p>{ this.state.robustnessDesc }</p>
-              </div>
-            </label>
-
-          <h3>use your own word/phrase?</h3>
-          <label htmlFor="distinct-no">
-            <p>no, thank you</p>
-            <input  type="radio"
-                    id="distinct-no"
-                    checked={ this.state.distinctWord === false }
-                    onChange={ this.setDistinct } />
-          </label>
-          <label htmlFor="distinct-yes">
-            <p>yes, please</p>
-            <input  type="radio"
-                    id="distinct-yes"
-                    checked={ this.state.distinctWord === true }
-                    onChange={ this.setDistinct } />
-          </label>
+          <PassGenForm  updateField={ this.updateField }
+                        genPass={ this.genPass }
+                        form={ this.state.form }
+                        robustnessDesc={ this.state.robustnessDesc }
+                        distinctWord={ this.state.distinctWord }
+                        setDistinct={ this.setDistinct } />
           
-          { 
-            this.state.distinctWord ?
-
-              <label htmlFor="distinct">
-                <p>distinct word/phrase</p>
-                <input  type="text"
-                        id="distinct"
-                        onChange={ this.updateField } />
-              </label> 
-
-            : null 
-          }
-          <button onClick={ this.genPass } >
-            Generate
-          </button>
-        	</form>
         </section>
         <section className="result">
           {
