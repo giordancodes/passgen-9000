@@ -13,7 +13,7 @@ class PassGen9000 extends Component {
 		this.state={
 			distinctWord: false,
 			form:{
-        length: 8,
+        length: 22,
 				robustness: 1
 			},
       robustnessDesc: null,
@@ -113,10 +113,9 @@ class PassGen9000 extends Component {
       }
     } 
 
-
     console.log(result, result.length);
     this.setState({ generatedResult: result });
-    console.log(this.slugify("--sadjas--fr-jf-cd9-"));
+    // console.log(this.slugify("--sadjas--fr-jf-cd9-"));
 
   }
 
