@@ -12,3 +12,7 @@ export function slugify(text) {
     .replace(/^-+/, '')             // Trim - from start of text
     .replace(/-+$/, '');            // Trim - from end of text
 }
+
+export function isLetter(str) {
+  return str.length === 1 && str.match(/[a-z]/i);
+}

@@ -7,7 +7,7 @@ import PassGenForm from './PassGenForm';
 import Generated from './Generated';
 import Heading from './Heading';
 
-import { slugify, rando } from './Helpers';
+import { slugify, rando, isLetter } from './Helpers';
 
 import './passgen.css';
 
@@ -117,32 +117,21 @@ class PassGen9000 extends Component {
       }
     }
 
+    let resultSplit;
+    resultSplit = result.split("");
 
-    // console.log(Substitutions["j"]);
+    // based on robustness, choose how many chars will be substituted
+    for (let i = 0; i < resultSplit.length; i++){
+      console.log(resultSplit[i]);
+    }
+
+    // console.log(result.);
 
     console.log(result, result.length);
     this.setState({ generatedResult: result });
-    console.log(slugify("--sadjas--fr-jf-cd9-"));
+    // console.log(slugify("--sadjas--fr-jf-cd9-"));
 
   }
-
-  swapChar = (char) =>{
-    
-  }
-
-  isLetter = (str) =>{
-    return str.length === 1 && str.match(/[a-z]/i);
-  }
-
-  isOdd = (num) =>{
-    return num % 2;
-  } 
-
-  // rando(max) {
-  //   let min = 0;
-  //   max = max -1;
-  //   return Math.floor(Math.random() * (max - min) + min);
-  // }
 
 }
 
