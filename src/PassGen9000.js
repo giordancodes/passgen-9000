@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 
 import SeedWords from './SeedWords.json';
 import Substitutions from './Substitutions.json';
+
 import PassGenForm from './PassGenForm';
 import Generated from './Generated';
+import Heading from './Heading';
 import Helpers from './Helpers';
+
 import './passgen.css';
 
 class PassGen9000 extends Component {
@@ -24,7 +27,7 @@ class PassGen9000 extends Component {
   render() {
     return (
       <div className="wrapper">
-        {/*<h1>PassGen 9000</h1>*/}
+        {/*<Heading />*/}
         <section className="intro">
       		
           <PassGenForm  updateField={ this.updateField }
@@ -98,6 +101,7 @@ class PassGen9000 extends Component {
     let seedNoun;
 
     generate: while (l > result.length){
+      // using n to switch between adjectives and nouns being added
       let n = 1;
 
       while (l > result.length){
@@ -111,7 +115,11 @@ class PassGen9000 extends Component {
           result = "";
         }
       }
-    } 
+    }
+
+
+
+    // console.log(Substitutions["j"]);
 
     console.log(result, result.length);
     this.setState({ generatedResult: result });
@@ -121,6 +129,10 @@ class PassGen9000 extends Component {
 
   swapChar = (char) =>{
     
+  }
+
+  isLetter = (str) =>{
+    return str.length === 1 && str.match(/[a-z]/i);
   }
 
   isOdd = (num) =>{
