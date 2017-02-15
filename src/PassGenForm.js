@@ -29,7 +29,6 @@ class PassGenForm extends Component{
 		      </div>
 		    </label>
 
-			  <h3>use your own word/phrase?</h3>
 			  <label htmlFor="distinct-no">
 			    <p>no, thank you</p>
 			    <input  type="radio"

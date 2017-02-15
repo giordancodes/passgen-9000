@@ -6,7 +6,8 @@ import Substitutions from './Substitutions.json';
 import PassGenForm from './PassGenForm';
 import Generated from './Generated';
 import Heading from './Heading';
-import Helpers from './Helpers';
+
+import { slugify, rando } from './Helpers';
 
 import './passgen.css';
 
@@ -42,7 +43,7 @@ class PassGen9000 extends Component {
           {
             this.state.generatedResult ?
 
-            <h4> 
+            <h4>
               <Generated generatedResult={ this.state.generatedResult }/>
             </h4>
 
@@ -97,18 +98,17 @@ class PassGen9000 extends Component {
     distinctWord = this.state.distinctWord;
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
-    let seedAdj;
-    let seedNoun;
 
-    generate: while (l > result.length){
+    // generate password from SeedWords with chosen length
+    while (l > result.length){
       // using n to switch between adjectives and nouns being added
       let n = 1;
 
       while (l > result.length){
         if (n % 2 === 1){
-          result = `${result}${SeedWords["sfw-adj"][this.rando(adjLength)]}`;
+          result = `${result}${SeedWords["sfw-adj"][rando(adjLength)]}`;
         } else {
-          result = `${result}${SeedWords["sfw-noun"][this.rando(nounLength)]}`;
+          result = `${result}${SeedWords["sfw-noun"][rando(nounLength)]}`;
         }
         n ++;
         if (l < result.length){
@@ -118,12 +118,11 @@ class PassGen9000 extends Component {
     }
 
 
-
     // console.log(Substitutions["j"]);
 
     console.log(result, result.length);
     this.setState({ generatedResult: result });
-    // console.log(this.slugify("--sadjas--fr-jf-cd9-"));
+    console.log(slugify("--sadjas--fr-jf-cd9-"));
 
   }
 
@@ -139,20 +138,11 @@ class PassGen9000 extends Component {
     return num % 2;
   } 
 
-  slugify = (text) =>{
-    return text.toString().toLowerCase()
-      .replace(/\s+/g, '-')     // Replace spaces with -
-      .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-      .replace(/\-\-+/g, '-')   // Replace multiple - with single -
-      .replace(/^-+/, '')       // Trim - from start of text
-      .replace(/-+$/, '');      // Trim - from end of text
-  }
-
-  rando(max) {
-    let min = 0;
-    max = max -1;
-    return Math.floor(Math.random() * (max - min) + min);
-  }
+  // rando(max) {
+  //   let min = 0;
+  //   max = max -1;
+  //   return Math.floor(Math.random() * (max - min) + min);
+  // }
 
 }
 
