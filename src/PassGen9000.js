@@ -6,6 +6,7 @@ import Substitutions from './Substitutions.json';
 import PassGenForm from './PassGenForm';
 import Generated from './Generated';
 import Heading from './Heading';
+import Error from './Error';
 
 import { slugify, rando, isLetter } from './Helpers';
 
@@ -22,8 +23,8 @@ class PassGen9000 extends Component {
         distinct: ""
 			},
       robustnessDesc: null,
-      generatedResult: null
-
+      generatedResult: null,
+      error: null
 		}
 	}
   render() {
@@ -38,6 +39,8 @@ class PassGen9000 extends Component {
                         robustnessDesc={ this.state.robustnessDesc }
                         chooseDistinctWord={ this.state.chooseDistinctWord }
                         setDistinct={ this.setDistinct } />
+
+          <Error error={ this.state.error } />
           
         </section>
         <section className="result">
@@ -100,10 +103,15 @@ class PassGen9000 extends Component {
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
 
-    // use custom word if desired
-    console.log(distinct);
+    // if custom word is longer than desired length, throw error and end
+    if (l < distinct.length){
+      this.setState({ error: "you've entered a custom word that is longer than your desired length, please adjust" });
+      return;
+    }
+
     // generate password from SeedWords with chosen length
     while (l > result.length){
+    // use custom word if desired
       result = result + distinct;
       // using n to switch between adjectives and nouns being added
       let n = 1;
