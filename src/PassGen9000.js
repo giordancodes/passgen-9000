@@ -99,7 +99,7 @@ class PassGen9000 extends Component {
     let result = "";
     l = this.state.form.length;
     r = this.state.form.robustness;
-    distinct = this.state.form.distinct;
+    distinct = slugify(this.state.form.distinct);
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
 
