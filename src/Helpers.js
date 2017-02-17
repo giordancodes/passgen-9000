@@ -1,6 +1,5 @@
 export function rando(max) {
   let min = 0;
-  max = max -1;
   return Math.floor(Math.random() * (max - min) + min);
 }
 
