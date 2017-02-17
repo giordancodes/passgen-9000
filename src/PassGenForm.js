@@ -33,25 +33,26 @@ class PassGenForm extends Component{
 			    <p>no, thank you</p>
 			    <input  type="radio"
 			            id="distinct-no"
-			            checked={ this.props.distinctWord === false }
+			            checked={ this.props.chooseDistinctWord === false }
 			            onChange={ this.props.setDistinct } />
 			  </label>
 			  <label htmlFor="distinct-yes">
 			    <p>yes, please</p>
 			    <input  type="radio"
 			            id="distinct-yes"
-			            checked={ this.props.distinctWord === true }
+			            checked={ this.props.chooseDistinctWord === true }
 			            onChange={ this.props.setDistinct } />
 			  </label>
 			  
 			  { 
-			    this.props.distinctWord ?
+			    this.props.chooseDistinctWord ?
 
 			      <label htmlFor="distinct">
 			        <p>distinct word/phrase</p>
 			        <input  type="text"
 			                id="distinct"
-			                onChange={ this.props.updateField } />
+			                onChange={ this.props.updateField }
+				              value={ this.props.distinctWord } />
 			      </label> 
 
 			    : null 

@@ -15,10 +15,11 @@ class PassGen9000 extends Component {
 	constructor(){
 		super();
 		this.state={
-			distinctWord: false,
+			chooseDistinctWord: false,
 			form:{
         length: 22,
-				robustness: 1
+				robustness: 1,
+        distinct: ""
 			},
       robustnessDesc: null,
       generatedResult: null
@@ -35,7 +36,7 @@ class PassGen9000 extends Component {
                         genPass={ this.genPass }
                         form={ this.state.form }
                         robustnessDesc={ this.state.robustnessDesc }
-                        distinctWord={ this.state.distinctWord }
+                        chooseDistinctWord={ this.state.chooseDistinctWord }
                         setDistinct={ this.setDistinct } />
           
         </section>
@@ -59,9 +60,9 @@ class PassGen9000 extends Component {
   }
 
   setDistinct = (e) => {
-  	let distinctWord = this.state.distinctWord;
-  	distinctWord = !distinctWord;
-  	this.setState({ distinctWord })
+  	let chooseDistinctWord = this.state.chooseDistinctWord;
+  	chooseDistinctWord = !chooseDistinctWord;
+  	this.setState({ chooseDistinctWord })
   }
 
   updateField = (e) =>{
@@ -89,16 +90,19 @@ class PassGen9000 extends Component {
     this.setState({ robustnessDesc });
   }
 
-  genPass = (e, l, r, distinctWord) =>{
+  genPass = (e, l, r, distinct) =>{
     e.preventDefault();
 
     let result = "";
     l = this.state.form.length;
     r = this.state.form.robustness;
-    distinctWord = this.state.distinctWord;
+    distinct = this.state.form.distinct;
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
 
+    // use custom word if desired
+    result = result + distinct;
+    console.log(distinct);
     // generate password from SeedWords with chosen length
     while (l > result.length){
       // using n to switch between adjectives and nouns being added
@@ -111,9 +115,11 @@ class PassGen9000 extends Component {
           result = `${result}${SeedWords["sfw-noun"][rando(nounLength)]}`;
         }
         n ++;
-        if (l < result.length){
-          result = "";
-        }
+      }
+      if (l < result.length){
+        result = "";
+      } else if (this.state.chooseDistinctWord === true &&  result.search(distinct) === -1){
+        result = "";
       }
     }
 
@@ -124,8 +130,6 @@ class PassGen9000 extends Component {
     for (let i = 0; i < resultSplit.length; i++){
       console.log(resultSplit[i]);
     }
-
-    // console.log(result.);
 
     console.log(result, result.length);
     this.setState({ generatedResult: result });
