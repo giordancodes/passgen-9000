@@ -101,13 +101,12 @@ class PassGen9000 extends Component {
     let nounLength = SeedWords["sfw-noun"].length;
 
     // use custom word if desired
-    result = result + distinct;
     console.log(distinct);
     // generate password from SeedWords with chosen length
     while (l > result.length){
+      result = result + distinct;
       // using n to switch between adjectives and nouns being added
       let n = 1;
-
       while (l > result.length){
         if (n % 2 === 1){
           result = `${result}${SeedWords["sfw-adj"][rando(adjLength)]}`;
@@ -116,9 +115,8 @@ class PassGen9000 extends Component {
         }
         n ++;
       }
+      console.log(result.search(distinct));
       if (l < result.length){
-        result = "";
-      } else if (this.state.chooseDistinctWord === true &&  result.search(distinct) === -1){
         result = "";
       }
     }
