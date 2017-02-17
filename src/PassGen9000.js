@@ -105,7 +105,7 @@ class PassGen9000 extends Component {
 
     // if custom word is longer than desired length, throw error and end
     if (l < distinct.length){
-      this.setState({ error: "you've entered a custom word that is longer than your desired length, please adjust" });
+      this.setState({ error: "you've entered a custom word that is longer than your desired length, please adjust", generatedResult: "" });
       return;
     }
 
