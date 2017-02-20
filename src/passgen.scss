@@ -117,19 +117,18 @@ section.intro{
 				display: inline;
 				top: 0;
 				left: 0;
-				width: 100%;
+				width: 95%;
 				display: -webkit-flex;
 				display: -moz-flex;
 				display: -ms-flex;
 				display: -o-flex;
 				display: flex;
-				justify-content: space-around;
+				justify-content: space-between;
 				align-items: center;
 			}
+			&:last-child{
+			}
 		}
-	}
-	label.distinct-no, label.distinct-yes{
-		width: 50%;
 	}
 	.range-count{
 		display: inline-flex;

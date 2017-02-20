@@ -10,7 +10,7 @@ class Robustness extends Component{
         <div className="range-count">
           <input  type="range"
                   min="1"
-                  max="4"
+                  max="5"
                   value={ this.props.form.robustness }
                   onChange={ this.props.updateField }
                   id="robustness" />

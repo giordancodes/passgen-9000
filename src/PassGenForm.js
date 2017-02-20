@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Length from './Length';
 import Robustness from './Robustness';
+import Distinct from './Distinct';
+import Generate from './Generate';
 import Icons from './Icons';
 
 class PassGenForm extends Component{
@@ -19,21 +21,13 @@ class PassGenForm extends Component{
 		    						robustnessDesc={ this.props.robustnessDesc }
 		    						next={ this.props.next }
                 		prev={ this.props.prev } />
+				
+				<Distinct form={ this.props.form }
+		    					updateField={ this.props.updateField }
+	    						next={ this.props.next }
+              		prev={ this.props.prev } />  
 
-			  <label htmlFor="distinct">
-	        <p className="main-label">distinct word/phrase <span>(optional)</span></p>
-	        <input  type="text"
-	                id="distinct"
-	                onChange={ this.props.updateField }
-		              value={ this.props.form.distinct } />
-	      </label> 
-
-			  <label htmlFor="generate">
-			  	<button id="generate"
-			  					onClick={ this.props.genPass } >
-			  	  Generate
-			  	</button>
-		  	</label>
+			  <Generate genPass={ this.props.genPass } />
 
 			</form>
     )

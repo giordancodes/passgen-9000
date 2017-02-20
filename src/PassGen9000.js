@@ -19,7 +19,7 @@ class PassGen9000 extends Component {
 			chooseDistinctWord: false,
 			form:{
         length: 22,
-				robustness: 1,
+				robustness: 3,
         distinct: ""
 			},
       robustnessDesc: null,
@@ -77,10 +77,6 @@ class PassGen9000 extends Component {
     setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 3000);
     // inputs
     setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 3700);
-    // setTimeout(() => { document.getElementsByTagName("label")[0].style.opacity = "1" }, 3700);
-    // setTimeout(() => { document.getElementsByTagName("label")[1].style.opacity = "1" }, 3700);
-    // setTimeout(() => { document.getElementsByTagName("label")[2].style.opacity = "1" }, 3700);
-    // setTimeout(() => { document.getElementsByTagName("label")[3].style.opacity = "1" }, 3700);
   }
 
   setDistinct = (e) => {
@@ -101,9 +97,9 @@ class PassGen9000 extends Component {
     let robustnessDesc = this.state.robustnessDesc;
     let r = this.state.form.robustness;
 
-    robustnessDesc = `${r * 25}%`;
+    robustnessDesc = `${r * 20}%`;
 
-    if (r == 4){
+    if (r == 5){
       robustnessDesc = "99%";
     }
 
