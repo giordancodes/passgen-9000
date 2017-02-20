@@ -27,10 +27,11 @@ class PassGen9000 extends Component {
       error: null
 		}
 	}
+
   render() {
     return (
       <div className="wrapper">
-        {/*<Heading />*/}
+        <Heading />
         <section className="intro">
       		
           <PassGenForm  updateField={ this.updateField }
@@ -133,6 +134,7 @@ class PassGen9000 extends Component {
     resultSplit = result.split("");
 
     // based on robustness, choose how many chars will be substituted
+    
 
     // go through result, randomly choose chars to be subbed
     for (let i = 0; i < resultSplit.length; i++){

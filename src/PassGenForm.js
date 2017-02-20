@@ -29,34 +29,14 @@ class PassGenForm extends Component{
 		      </div>
 		    </label>
 
-			  <label htmlFor="distinct-no">
-			    <p>no, thank you</p>
-			    <input  type="radio"
-			            id="distinct-no"
-			            checked={ this.props.chooseDistinctWord === false }
-			            onChange={ this.props.setDistinct } />
-			  </label>
-			  <label htmlFor="distinct-yes">
-			    <p>yes, please</p>
-			    <input  type="radio"
-			            id="distinct-yes"
-			            checked={ this.props.chooseDistinctWord === true }
-			            onChange={ this.props.setDistinct } />
-			  </label>
-			  
-			  { 
-			    this.props.chooseDistinctWord ?
+			  <label htmlFor="distinct">
+	        <p>distinct word/phrase <span>(optional)</span></p>
+	        <input  type="text"
+	                id="distinct"
+	                onChange={ this.props.updateField }
+		              value={ this.props.form.distinct } />
+	      </label> 
 
-			      <label htmlFor="distinct">
-			        <p>distinct word/phrase</p>
-			        <input  type="text"
-			                id="distinct"
-			                onChange={ this.props.updateField }
-				              value={ this.props.distinctWord } />
-			      </label> 
-
-			    : null 
-			  }
 			  <button onClick={ this.props.genPass } >
 			    Generate
 			  </button>

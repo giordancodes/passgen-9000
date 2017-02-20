@@ -1,4 +1,4 @@
 {
-	"sfw-adj":["brazen", "stark", "bleak", "elated", "green", "black", "red", "sullen", "ornery", "delusional", "pungent", "clean", "heavy", "fried", "basted", "savage", "spicy", "precious" ],
-	"sfw-noun":["donkey", "monkey", "archer", "sloth", "shopkeep", "haberdasher", "nuclei", "facade", "cat", "dog", "trebuchet", "typist", "engineer", "water", "pizza", "poultry", "metal", "cactus"]
+	"sfw-adj":["brazen", "stark", "bleak", "elated", "green", "black", "red", "sullen", "ornery", "delusional", "pungent", "clean", "heavy", "fried", "basted", "savage", "spicy", "precious", "old", "quaint", "corrupt", "fine", "weak", "hot", "warm", "cold", "sad" ],
+	"sfw-noun":["donkey", "monkey", "archer", "sloth", "shopkeep", "haberdasher", "nuclei", "facade", "cat", "dog", "trebuchet", "typist", "engineer", "water", "pizza", "poultry", "metal", "cactus", "boy", "girl", "man", "woman"]
 }
