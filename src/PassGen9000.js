@@ -41,6 +41,7 @@ class PassGen9000 extends Component {
                         robustnessDesc={ this.state.robustnessDesc }
                         chooseDistinctWord={ this.state.chooseDistinctWord }
                         setDistinct={ this.setDistinct }
+                        currentStep={ this.currentStep }
                         next={ this.next }
                         prev={ this.prev } />
 
@@ -75,10 +76,11 @@ class PassGen9000 extends Component {
     setTimeout(() => { document.getElementById("title").style.height = "10vh" }, 3000);
     setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 3000);
     // inputs
-    setTimeout(() => { document.getElementsByTagName("label")[0].style.opacity = "1" }, 3700);
-    setTimeout(() => { document.getElementsByTagName("label")[1].style.opacity = "1" }, 3700);
-    setTimeout(() => { document.getElementsByTagName("label")[2].style.opacity = "1" }, 3700);
-    setTimeout(() => { document.getElementsByTagName("label")[3].style.opacity = "1" }, 3700);
+    setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 3700);
+    // setTimeout(() => { document.getElementsByTagName("label")[0].style.opacity = "1" }, 3700);
+    // setTimeout(() => { document.getElementsByTagName("label")[1].style.opacity = "1" }, 3700);
+    // setTimeout(() => { document.getElementsByTagName("label")[2].style.opacity = "1" }, 3700);
+    // setTimeout(() => { document.getElementsByTagName("label")[3].style.opacity = "1" }, 3700);
   }
 
   setDistinct = (e) => {
@@ -98,16 +100,6 @@ class PassGen9000 extends Component {
   updateDesc = () =>{
     let robustnessDesc = this.state.robustnessDesc;
     let r = this.state.form.robustness;
-
-    // if (r == 1){
-    //   robustnessDesc = "not bad";
-    // } else if (r == 2){
-    //   robustnessDesc = "pretty good";
-    // } else if (r == 3){
-    //   robustnessDesc = "strong like bull";
-    // } else if (r == 4){
-    //   robustnessDesc = "locked down";
-    // }
 
     robustnessDesc = `${r * 25}%`;
 

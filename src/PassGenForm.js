@@ -7,7 +7,7 @@ import Icons from './Icons';
 class PassGenForm extends Component{
 	render(){
 		return(
-		  <form>
+		  <form id="pass-gen-form">
 
 		    <Length form={ this.props.form }
 		    				updateField={ this.props.updateField }
