@@ -59,8 +59,19 @@ class PassGen9000 extends Component {
     );
   }
 
-  componentDidMount() {	
-  	this.updateDesc();
+  componentWillMount() {
+  }
+
+  componentDidMount() { 
+    this.updateDesc();
+    this.introAnimation();
+  }
+
+  introAnimation(){
+    setTimeout(function(){ document.getElementById("title").style.fontSize = "13vw" }, 1500);
+    setTimeout(function(){ document.getElementById("title").style.height = "10vh" }, 3000);
+    setTimeout(function(){ document.getElementById("title").style.padding = "42px 0" }, 3000);
+    setTimeout(function(){ document.getElementsByClassName("main-label").style.color = "#000" }, 5000);
   }
 
   setDistinct = (e) => {
@@ -134,7 +145,7 @@ class PassGen9000 extends Component {
     resultSplit = result.split("");
 
     // based on robustness, choose how many chars will be substituted
-    
+
 
     // go through result, randomly choose chars to be subbed
     for (let i = 0; i < resultSplit.length; i++){

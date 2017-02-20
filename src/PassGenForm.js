@@ -5,7 +5,7 @@ class PassGenForm extends Component{
 		return(
 		  <form>
 		    <label htmlFor="length">
-		      <p>length of password</p>
+		      <p className="main-label">length of password</p>
 		      <div className="range-count">
 		        <input  type="range"
 		                min="8"
@@ -17,7 +17,7 @@ class PassGenForm extends Component{
 		      </div>
 		    </label>
 		    <label htmlFor="robustness">
-		    <p>password robustness</p>
+		    <p className="main-label">password robustness</p>
 		      <div className="range-count">
 		        <input  type="range"
 		                min="1"
@@ -30,7 +30,7 @@ class PassGenForm extends Component{
 		    </label>
 
 			  <label htmlFor="distinct">
-	        <p>distinct word/phrase <span>(optional)</span></p>
+	        <p className="main-label">distinct word/phrase <span>(optional)</span></p>
 	        <input  type="text"
 	                id="distinct"
 	                onChange={ this.props.updateField }
