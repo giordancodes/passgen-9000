@@ -7,8 +7,17 @@ html, body{
 	background: #444;
 	font-family: $lato;
 }
+a{
+	filter: brightness(80%);
+	&:focus, &:hover{
+		cursor: pointer;
+		filter: blur(2px) brightness(100%);
+	}
+}
 label{
 	display: block;
+	transition: opacity .8s ease-in;
+	opacity: 0;
 }
 
 // WRAPPER
@@ -38,15 +47,13 @@ h4{
 	letter-spacing: 1px;
 }
 p{
-	transition: color .6s;
 	font-family: $lato;
 	font-weight: 500;
+	color: #000;
+	transition: color .6s;
+	margin: 42px 0;
 }
-.main-label{
-	color: #444;
-	
-}
-// FULL-SCREEN
+// ANIMATION-RELATED STYLES
 .full-screen{
 	transition: font-size 1s, height .7s;
 	height: 100vh;
@@ -58,6 +65,19 @@ p{
 	align-items: center;
 	justify-content: center;
 	font-size: 23vw;
+}
+// ICONS
+.icons{
+	font-size: 24px;
+	& > *{
+		padding: 0 6px;
+	}
+}
+.fa-check{
+	color: lime;
+}
+.fa-times{
+	color: crimson;
 }
 // SECTIONS
 section.intro{
@@ -96,7 +116,13 @@ section.intro{
 				top: 0;
 				left: 0;
 				width: 100%;
-				text-align: center;
+				display: -webkit-flex;
+				display: -moz-flex;
+				display: -ms-flex;
+				display: -o-flex;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
 			}
 		}
 	}

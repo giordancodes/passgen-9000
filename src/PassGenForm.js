@@ -1,33 +1,24 @@
 import React, { Component } from 'react';
 
+import Length from './Length';
+import Robustness from './Robustness';
+import Icons from './Icons';
+
 class PassGenForm extends Component{
 	render(){
 		return(
 		  <form>
-		    <label htmlFor="length">
-		      <p className="main-label">length of password</p>
-		      <div className="range-count">
-		        <input  type="range"
-		                min="8"
-		                max="32"
-		                value={ this.props.form.length }
-		                onChange={ this.props.updateField }
-		                id="length" />
-		        <p>{ this.props.form.length }</p>
-		      </div>
-		    </label>
-		    <label htmlFor="robustness">
-		    <p className="main-label">password robustness</p>
-		      <div className="range-count">
-		        <input  type="range"
-		                min="1"
-		                max="4"
-		                value={ this.props.form.robustness }
-		                onChange={ this.props.updateField }
-		                id="robustness" />
-		        <p>{ this.props.robustnessDesc }</p>
-		      </div>
-		    </label>
+
+		    <Length form={ this.props.form }
+		    				updateField={ this.props.updateField }
+		    				next={ this.props.next }
+                prev={ this.props.prev } />
+
+        <Robustness form={ this.props.form }
+		    						updateField={ this.props.updateField }
+		    						robustnessDesc={ this.props.robustnessDesc }
+		    						next={ this.props.next }
+                		prev={ this.props.prev } />
 
 			  <label htmlFor="distinct">
 	        <p className="main-label">distinct word/phrase <span>(optional)</span></p>
@@ -37,9 +28,13 @@ class PassGenForm extends Component{
 		              value={ this.props.form.distinct } />
 	      </label> 
 
-			  <button onClick={ this.props.genPass } >
-			    Generate
-			  </button>
+			  <label htmlFor="generate">
+			  	<button id="generate"
+			  					onClick={ this.props.genPass } >
+			  	  Generate
+			  	</button>
+		  	</label>
+
 			</form>
     )
 	}

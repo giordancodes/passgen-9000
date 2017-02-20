@@ -24,7 +24,8 @@ class PassGen9000 extends Component {
 			},
       robustnessDesc: null,
       generatedResult: null,
-      error: null
+      error: null,
+      currentStep: 1
 		}
 	}
 
@@ -39,7 +40,9 @@ class PassGen9000 extends Component {
                         form={ this.state.form }
                         robustnessDesc={ this.state.robustnessDesc }
                         chooseDistinctWord={ this.state.chooseDistinctWord }
-                        setDistinct={ this.setDistinct } />
+                        setDistinct={ this.setDistinct }
+                        next={ this.next }
+                        prev={ this.prev } />
 
           <Error error={ this.state.error } />
           
@@ -68,10 +71,14 @@ class PassGen9000 extends Component {
   }
 
   introAnimation(){
-    setTimeout(function(){ document.getElementById("title").style.fontSize = "13vw" }, 1500);
-    setTimeout(function(){ document.getElementById("title").style.height = "10vh" }, 3000);
-    setTimeout(function(){ document.getElementById("title").style.padding = "42px 0" }, 3000);
-    setTimeout(function(){ document.getElementsByClassName("main-label").style.color = "#000" }, 5000);
+    setTimeout(() => { document.getElementById("title").style.fontSize = "13vw" }, 1500);
+    setTimeout(() => { document.getElementById("title").style.height = "10vh" }, 3000);
+    setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 3000);
+    // inputs
+    setTimeout(() => { document.getElementsByTagName("label")[0].style.opacity = "1" }, 3700);
+    setTimeout(() => { document.getElementsByTagName("label")[1].style.opacity = "1" }, 3700);
+    setTimeout(() => { document.getElementsByTagName("label")[2].style.opacity = "1" }, 3700);
+    setTimeout(() => { document.getElementsByTagName("label")[3].style.opacity = "1" }, 3700);
   }
 
   setDistinct = (e) => {
@@ -92,17 +99,43 @@ class PassGen9000 extends Component {
     let robustnessDesc = this.state.robustnessDesc;
     let r = this.state.form.robustness;
 
-    if (r == 1){
-      robustnessDesc = "not bad";
-    } else if (r == 2){
-      robustnessDesc = "pretty good";
-    } else if (r == 3){
-      robustnessDesc = "strong like bull";
-    } else if (r == 4){
-      robustnessDesc = "locked down";
+    // if (r == 1){
+    //   robustnessDesc = "not bad";
+    // } else if (r == 2){
+    //   robustnessDesc = "pretty good";
+    // } else if (r == 3){
+    //   robustnessDesc = "strong like bull";
+    // } else if (r == 4){
+    //   robustnessDesc = "locked down";
+    // }
+
+    robustnessDesc = `${r * 25}%`;
+
+    if (r == 4){
+      robustnessDesc = "99%";
     }
 
     this.setState({ robustnessDesc });
+  }
+
+  next = (e) =>{
+    e.preventDefault();
+
+    let currentStep = this.state.currentStep + 1;
+    if (currentStep > 4){
+      currentStep = 4;
+    }
+    this.setState({ currentStep });
+  }
+
+  prev = (e) =>{
+    e.preventDefault();
+
+    let currentStep = this.state.currentStep - 1;
+    if (currentStep < 1){
+      currentStep = 1;
+    }
+    this.setState({ currentStep });
   }
 
   genPass = (e, l, r, distinct) =>{
