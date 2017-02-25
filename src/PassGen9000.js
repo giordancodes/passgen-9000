@@ -98,10 +98,16 @@ class PassGen9000 extends Component {
   }
 
   updateRadio = (e) =>{
-    let form = this.state.form;
-    form[e.target.value] = e.target.value;
-    
-    this.setState({form});
+    let aesthetic = this.state.form.aesthetic;
+    // form[e.target.checked] = e.target.value;
+    console.log(aesthetic[e.target.value]);
+    // { 
+    //   form.aesthetic === "words" ? 
+    //   form.aesthetic = "characters"
+    //   : form.aesthetic = "words"
+    // }
+
+    this.setState({aesthetic});
   }
 
   updateDesc = () =>{

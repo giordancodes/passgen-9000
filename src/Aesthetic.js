@@ -9,14 +9,14 @@ class Aesthetic extends Component{
         <p className="main-label">aesthetic</p>
         <div className="labels radio">
           <input  type="radio"
-                  value={ "words" }
                   onChange={ this.props.updateRadio }
-                  checked={ this.props.form.aesthetic }
+                  checked={ this.props.form.aesthetic === "words" }
+                  value={ "words" }
                   name="aesthetic" />
           <input  type="radio"
-                  value={ "characters" }
                   onChange={ this.props.updateRadio }
-                  checked={ this.props.form.aesthetic }
+                  checked={ this.props.form.aesthetic === "characters" }
+                  value={ "characters" }
                   name="aesthetic" />
           <p>
             { this.props.form.aesthetic }
