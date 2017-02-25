@@ -5,17 +5,19 @@ import Icons from './Icons';
 class Aesthetic extends Component{
 	render(){
 		return(
-      <label htmlFor="robustness">
+      <label htmlFor="aesthetic">
         <p className="main-label">aesthetic</p>
-        <div className="range-count">
+        <div className="radio">
           <input  type="radio"
-                  min="1"
-                  max="5"
-                  value={ this.props.form.robustness }
+                  value={ this.props.form.aesthetic }
                   onChange={ this.props.updateField }
-                  id="robustness" />
+                  id="words" />
+          <input  type="radio"
+                  value={ this.props.form.aesthetic }
+                  onChange={ this.props.updateField }
+                  id="chars" />
           <p>
-            { this.props.robustnessDesc }
+            { this.props.form.aesthetic }
             <Icons next={ this.props.next }
                    prev={ this.props.prev } />
           </p>

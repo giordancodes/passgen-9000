@@ -20,6 +20,7 @@ class PassGen9000 extends Component {
 			form:{
         length: 22,
 				robustness: 3,
+        aesthetic: "words",
         distinct: ""
 			},
       robustnessDesc: null,
