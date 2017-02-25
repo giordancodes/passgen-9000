@@ -3,6 +3,10 @@ export function rando(max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
+export function randomChars(){
+	return Math.random().toString(36).substring(7);
+}
+
 export function slugify(text) {
   return text.toString().toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with -

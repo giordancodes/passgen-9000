@@ -31,34 +31,36 @@ class PassGen9000 extends Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div>
         <Heading />
-        <section className="intro">
-      		
-          <PassGenForm  updateField={ this.updateField }
-                        genPass={ this.genPass }
-                        form={ this.state.form }
-                        robustnessDesc={ this.state.robustnessDesc }
-                        chooseDistinctWord={ this.state.chooseDistinctWord }
-                        setDistinct={ this.setDistinct }
-                        currentStep={ this.currentStep }
-                        next={ this.next }
-                        prev={ this.prev } />
-
-          <Error error={ this.state.error } />
-          
-        </section>
-        <section className="result">
-          {
-            this.state.generatedResult ?
-
-            <h4>
-              <Generated generatedResult={ this.state.generatedResult }/>
-            </h4>
-
-            : null
-          }
-        </section>
+        <div className="wrapper">
+          <section className="intro">
+            
+            <PassGenForm  updateField={ this.updateField }
+                          genPass={ this.genPass }
+                          form={ this.state.form }
+                          robustnessDesc={ this.state.robustnessDesc }
+                          chooseDistinctWord={ this.state.chooseDistinctWord }
+                          setDistinct={ this.setDistinct }
+                          currentStep={ this.currentStep }
+                          next={ this.next }
+                          prev={ this.prev } />
+        
+            <Error error={ this.state.error } />
+            
+          </section>
+          <section className="result">
+            {
+              this.state.generatedResult ?
+        
+              <h4>
+                <Generated generatedResult={ this.state.generatedResult }/>
+              </h4>
+        
+              : null
+            }
+          </section>
+        </div>
       </div>
     );
   }
@@ -72,7 +74,7 @@ class PassGen9000 extends Component {
   }
 
   introAnimation(){
-    setTimeout(() => { document.getElementById("title").style.fontSize = "13vw" }, 1500);
+    setTimeout(() => { document.getElementById("title").style.fontSize = "9vw" }, 1500);
     setTimeout(() => { document.getElementById("title").style.height = "10vh" }, 3000);
     setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 3000);
     // inputs
@@ -156,7 +158,7 @@ class PassGen9000 extends Component {
         }
         n ++;
       }
-      console.log(result.search(distinct));
+      // console.log(result.search(distinct));
       if (l < result.length){
         result = "";
       }

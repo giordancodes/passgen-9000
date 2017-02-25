@@ -17,7 +17,24 @@ a{
 label{
 	display: block;
 }
-
+// INPUTS
+input[type=range]{
+	-webkit-appearance:none;
+	background:none;
+	&::-webkit-slider-runnable-track{
+		border: none;
+		background: goldenrod;
+		height: 4px;
+		border-radius: 10px;		
+	}
+	&::-webkit-slider-thumb{
+		-webkit-appearance:none;
+		background: lime;
+		height: 16px;
+		width: 16px;
+		border-radius: 0 0 20px 20px;
+	}
+}
 // WRAPPER
 .wrapper{
 	margin: 0 auto;
@@ -42,12 +59,13 @@ h3{
 	margin: 0;
 }
 h4{
-	letter-spacing: 1px;
+	letter-spacing: 1.5px;
+	color: white;
 }
 p{
 	font-family: $lato;
 	font-weight: 500;
-	color: #000;
+	color: white;
 	transition: color .6s;
 	margin: 42px 0;
 }
