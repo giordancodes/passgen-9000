@@ -7,7 +7,7 @@ class Robustness extends Component{
 		return(
       <label htmlFor="robustness">
         <p className="main-label">password robustness</p>
-        <div className="range-count">
+        <div className="labels">
           <input  type="range"
                   min="1"
                   max="5"

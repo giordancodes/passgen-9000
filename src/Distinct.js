@@ -7,7 +7,7 @@ class Distinct extends Component{
 		return(
       <label htmlFor="distinct">
         <p className="main-label">distinct word/phrase <span>(optional)</span></p>
-        <div className="range-count">
+        <div className="labels">
           <input  type="text"
                   id="distinct"
                   onChange={ this.props.updateField }

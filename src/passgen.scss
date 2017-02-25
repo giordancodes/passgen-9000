@@ -14,6 +14,10 @@ a{
 		filter: blur(2px) brightness(100%);
 	}
 }
+code{
+	color: crimson;
+	font-size: 16px;
+}
 label{
 	display: block;
 }
@@ -128,7 +132,7 @@ section.intro{
 			padding: 5px;
 			font-size: 24px;
 		}
-		.range-count{
+		.labels{
 			position: relative;
 			p{
 				position: absolute;

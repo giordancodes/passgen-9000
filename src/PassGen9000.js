@@ -38,6 +38,7 @@ class PassGen9000 extends Component {
           <section className="intro">
             
             <PassGenForm  updateField={ this.updateField }
+                          updateRadio={ this.updateRadio }
                           genPass={ this.genPass }
                           form={ this.state.form }
                           robustnessDesc={ this.state.robustnessDesc }
@@ -90,10 +91,17 @@ class PassGen9000 extends Component {
 
   updateField = (e) =>{
   	let form = this.state.form;
-  	form[e.target.id] = e.target.value;
+    form[e.target.id] = e.target.value;
     this.updateDesc();
 
-  	this.setState({form});
+    this.setState({form});
+  }
+
+  updateRadio = (e) =>{
+    let form = this.state.form;
+    form[e.target.value] = e.target.value;
+    
+    this.setState({form});
   }
 
   updateDesc = () =>{
@@ -113,8 +121,8 @@ class PassGen9000 extends Component {
     e.preventDefault();
 
     let currentStep = this.state.currentStep + 1;
-    if (currentStep > 4){
-      currentStep = 4;
+    if (currentStep > 5){
+      currentStep = 5;
     }
     this.setState({ currentStep });
   }
@@ -129,6 +137,10 @@ class PassGen9000 extends Component {
     this.setState({ currentStep });
   }
 
+  clearError = () =>{
+    setTimeout(() =>{ this.setState({ error: '' })} , 5000);
+  }
+
   genPass = (e, l, r, distinct) =>{
     e.preventDefault();
 
@@ -140,8 +152,9 @@ class PassGen9000 extends Component {
     let nounLength = SeedWords["sfw-noun"].length;
 
     // if custom word is longer than desired length, throw error and end
-    if (l < distinct.length){
-      this.setState({ error: "you've entered a custom word that is longer than your desired length, please adjust", generatedResult: "" });
+    if (l - 3 < distinct.length){
+      this.setState({ error: "you've entered a custom word that is not suited your desired password length, please adjust", generatedResult: "" });
+      this.clearError();
       return;
     }
 

@@ -24,7 +24,7 @@ class PassGenForm extends Component{
                 		prev={ this.props.prev } />
 
     		<Aesthetic 	form={ this.props.form }
-		    						updateField={ this.props.updateField }
+		    						updateRadio={ this.props.updateRadio }
 		    						next={ this.props.next }
                 		prev={ this.props.prev } />
 				

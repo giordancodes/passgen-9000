@@ -7,7 +7,7 @@ class Length extends Component{
 		return(
       <label htmlFor="length">
         <p className="main-label">length of password</p>
-        <div className="range-count">
+        <div className="labels">
           <input  type="range"
                   min="8"
                   max="32"
