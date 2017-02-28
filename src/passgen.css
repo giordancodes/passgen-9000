@@ -185,7 +185,6 @@ section.intro label {
     position: relative; }
     section.intro label .labels p {
       position: absolute;
-      display: inline;
       top: 0;
       left: 0;
       width: 95%;

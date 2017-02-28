@@ -23,8 +23,8 @@ class PassGenForm extends Component{
 		    						next={ this.props.next }
                 		prev={ this.props.prev } />
 
-    		<Aesthetic 	form={ this.props.form }
-		    						updateRadio={ this.props.updateRadio }
+    		<Aesthetic 	aesthetic={ this.props.aesthetic }
+		    						updateCheck={ this.props.updateCheck }
 		    						next={ this.props.next }
                 		prev={ this.props.prev } />
 				

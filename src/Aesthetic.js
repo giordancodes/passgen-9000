@@ -6,20 +6,25 @@ class Aesthetic extends Component{
 	render(){
 		return(
       <label htmlFor="aesthetic">
+      
         <p className="main-label">aesthetic</p>
+        
         <div className="labels radio">
+
           <input  type="checkbox"
-                  id="check1"
+                  id="aesthetic"
                   className="cmn-toggle cmn-toggle-round"
-                  onClick={ this.props.updateRadio }
-                  checked={ this.props.aesthetic }
-                  name="aesthetic" />
-          <label htmlFor="check1"></label>
+                  onClick={ this.props.updateCheck }
+                  checked={ this.props.aesthetic } />
+
+          <label htmlFor="aesthetic"></label>
+
           <p>
-            { this.props.form.aesthetic }
+            { this.props.aesthetic }
             <Icons next={ this.props.next }
                    prev={ this.props.prev } />
           </p>
+
         </div>
       </label>
     )

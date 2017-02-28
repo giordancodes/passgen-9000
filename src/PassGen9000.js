@@ -38,9 +38,10 @@ class PassGen9000 extends Component {
           <section className="intro">
             
             <PassGenForm  updateField={ this.updateField }
-                          updateRadio={ this.updateRadio }
+                          updateCheck={ this.updateCheck }
                           genPass={ this.genPass }
                           form={ this.state.form }
+                          aesthetic={ this.state.aesthetic }
                           robustnessDesc={ this.state.robustnessDesc }
                           chooseDistinctWord={ this.state.chooseDistinctWord }
                           setDistinct={ this.setDistinct }
@@ -97,11 +98,11 @@ class PassGen9000 extends Component {
     this.setState({form});
   }
 
-  updateRadio = (e) =>{
+  updateCheck = (e) =>{
     let aesthetic = this.state.aesthetic;
     aesthetic != aesthetic;
-
-    this.setState({aesthetic});
+    console.log(aesthetic);
+    this.setState({ aesthetic });
   }
 
   updateDesc = () =>{
