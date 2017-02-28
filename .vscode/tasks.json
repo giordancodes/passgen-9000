@@ -1,0 +1,7 @@
+{
+  "version": "0.1.0",
+  "command": "node-sass",
+  "isShellCommand": true,
+  "args": ["src/passgen.scss", "src/passgen.css"],
+  "showOutput": "always"
+}

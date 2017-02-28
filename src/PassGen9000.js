@@ -20,9 +20,9 @@ class PassGen9000 extends Component {
 			form:{
         length: 22,
 				robustness: 3,
-        aesthetic: "words",
         distinct: ""
 			},
+      aesthetic: false,
       robustnessDesc: null,
       generatedResult: null,
       error: null,
@@ -98,14 +98,8 @@ class PassGen9000 extends Component {
   }
 
   updateRadio = (e) =>{
-    let aesthetic = this.state.form.aesthetic;
-    // form[e.target.checked] = e.target.value;
-    console.log(aesthetic[e.target.value]);
-    // { 
-    //   form.aesthetic === "words" ? 
-    //   form.aesthetic = "characters"
-    //   : form.aesthetic = "words"
-    // }
+    let aesthetic = this.state.aesthetic;
+    aesthetic != aesthetic;
 
     this.setState({aesthetic});
   }
