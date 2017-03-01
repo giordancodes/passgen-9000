@@ -142,11 +142,16 @@ class PassGen9000 extends Component {
 
   transition = () =>{
     let step = this.state.currentStep;
+
+    return new Promise((resolve, reject) => {
+
+    });
+
     console.log(step);
   }
 
   promise = () =>{
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       this.transition();
     });
   }
