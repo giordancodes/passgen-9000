@@ -125,8 +125,8 @@ class PassGen9000 extends Component {
     if (currentStep > 5){
       currentStep = 5;
     }
-    this.transition();
-    this.setState({ currentStep });
+    this.setState({ currentStep }, this.transition());
+    console.log(currentStep)
   }
 
   prev = (e) =>{
@@ -136,14 +136,20 @@ class PassGen9000 extends Component {
     if (currentStep < 1){
       currentStep = 1;
     }
-    this.transition();
-    this.setState({ currentStep });
+    this.setState({ currentStep }, this.transition());
+    console.log(currentStep)
   }
 
   transition = () =>{
     let step = this.state.currentStep;
     console.log(step);
-  }  
+  }
+
+  promise = () =>{
+    return new Promise((resolve) => {
+      this.transition();
+    });
+  }
 
   clearError = () =>{
     setTimeout(() =>{ this.setState({ error: '' })} , 5000);
