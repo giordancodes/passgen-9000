@@ -14,7 +14,7 @@ class Aesthetic extends Component{
           <input  type="checkbox"
                   id="aesthetic"
                   className="cmn-toggle cmn-toggle-round"
-                  onClick={ this.props.updateCheck }
+                  onChange={ this.props.updateCheck }
                   checked={ this.props.aesthetic } />
 
           <label htmlFor="aesthetic"></label>

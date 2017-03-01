@@ -98,9 +98,10 @@ class PassGen9000 extends Component {
     this.setState({form});
   }
 
-  updateCheck = (e) =>{
+  updateCheck = () =>{
     let aesthetic = this.state.aesthetic;
-    aesthetic != aesthetic;
+    aesthetic = !aesthetic;
+
     console.log(aesthetic);
     this.setState({ aesthetic });
   }
