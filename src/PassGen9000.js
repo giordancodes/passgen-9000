@@ -102,7 +102,6 @@ class PassGen9000 extends Component {
     let aesthetic = this.state.aesthetic;
     aesthetic = !aesthetic;
 
-    console.log(aesthetic);
     this.setState({ aesthetic });
   }
 
@@ -126,6 +125,7 @@ class PassGen9000 extends Component {
     if (currentStep > 5){
       currentStep = 5;
     }
+    this.transition();
     this.setState({ currentStep });
   }
 
@@ -136,8 +136,14 @@ class PassGen9000 extends Component {
     if (currentStep < 1){
       currentStep = 1;
     }
+    this.transition();
     this.setState({ currentStep });
   }
+
+  transition = () =>{
+    let step = this.state.currentStep;
+    console.log(step);
+  }  
 
   clearError = () =>{
     setTimeout(() =>{ this.setState({ error: '' })} , 5000);
