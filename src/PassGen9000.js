@@ -23,6 +23,7 @@ class PassGen9000 extends Component {
         distinct: ""
 			},
       aesthetic: false,
+      aestheticDesc: "words",
       robustnessDesc: null,
       generatedResult: null,
       error: null,
@@ -69,8 +70,8 @@ class PassGen9000 extends Component {
   }
 
   componentDidMount() { 
-    this.updateDesc();
     this.introAnimation();
+    this.updateDesc();
   }
 
   introAnimation(){
@@ -97,21 +98,21 @@ class PassGen9000 extends Component {
 
   updateCheck = () =>{
     let aesthetic = this.state.aesthetic;
+    let aestheticDesc = this.state.aestheticDesc;
+
     aesthetic = !aesthetic;
 
-    this.updateDesc();
+    { 
+      aesthetic ? this.setState({ aestheticDesc: "characters" })
+      : this.setState({ aestheticDesc: "words" })
+    }
+
     this.setState({ aesthetic });
   }
 
   updateDesc = () =>{
     let robustnessDesc = this.state.robustnessDesc;
     let r = this.state.form.robustness;
-    let aestheticDesc = this.state.aestheticDesc;
-    let a = this.state.aesthetic;
-
-    { a ? this.setState({ aestheticDesc: "words" })
-      : this.setState({ aestheticDesc: "characters" })
-    }
 
     robustnessDesc = `${r * 20}%`;
 
