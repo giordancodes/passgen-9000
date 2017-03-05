@@ -23,6 +23,7 @@ class PassGen9000 extends Component {
         distinct: ""
 			},
       aesthetic: false,
+      aestheticDesc: false,
       robustnessDesc: null,
       generatedResult: null,
       error: null,
@@ -41,8 +42,8 @@ class PassGen9000 extends Component {
                           updateCheck={ this.updateCheck }
                           genPass={ this.genPass }
                           form={ this.state.form }
-                          aesthetic={ this.state.aesthetic }
                           robustnessDesc={ this.state.robustnessDesc }
+                          aestheticDesc={ this.state.aestheticDesc }
                           chooseDistinctWord={ this.state.chooseDistinctWord }
                           setDistinct={ this.setDistinct }
                           currentStep={ this.currentStep }
@@ -66,9 +67,6 @@ class PassGen9000 extends Component {
         </div>
       </div>
     );
-  }
-
-  componentWillMount() {
   }
 
   componentDidMount() { 
@@ -95,7 +93,7 @@ class PassGen9000 extends Component {
     form[e.target.id] = e.target.value;
     this.updateDesc();
 
-    this.setState({form});
+    this.setState({ form });
   }
 
   updateCheck = () =>{
@@ -108,6 +106,12 @@ class PassGen9000 extends Component {
   updateDesc = () =>{
     let robustnessDesc = this.state.robustnessDesc;
     let r = this.state.form.robustness;
+    let aestheticDesc = this.state.form.aestheticDesc;
+    let a = this.state.form.aesthetic;
+
+    { a ? this.setState({ aestheticDesc: "words" })
+      : this.setState({ aestheticDesc: "characters" })
+    }
 
     robustnessDesc = `${r * 20}%`;
 
@@ -137,23 +141,14 @@ class PassGen9000 extends Component {
       currentStep = 1;
     }
     this.setState({ currentStep }, this.transition());
-    console.log(currentStep)
+    console.log(currentStep);
   }
 
   transition = () =>{
     let step = this.state.currentStep;
 
-    return new Promise((resolve, reject) => {
-
-    });
 
     console.log(step);
-  }
-
-  promise = () =>{
-    return new Promise((resolve, reject) => {
-      this.transition();
-    });
   }
 
   clearError = () =>{

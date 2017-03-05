@@ -195,6 +195,8 @@ section.intro label {
       display: flex;
       justify-content: space-between;
       align-items: center; }
+    section.intro label .labels.radio {
+      width: 200px; }
 
 section.intro .range-count {
   display: inline-flex; }

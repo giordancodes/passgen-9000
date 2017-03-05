@@ -149,6 +149,9 @@ section.intro{
 				justify-content: space-between;
 				align-items: center;
 			}
+			&.radio{
+				width: 200px;
+			}
 		}
 	}
 	.range-count{

@@ -20,7 +20,7 @@ class Aesthetic extends Component{
           <label htmlFor="aesthetic"></label>
 
           <p>
-            { this.props.aesthetic }
+            { this.props.aestheticDesc }
             <Icons next={ this.props.next }
                    prev={ this.props.prev } />
           </p>
