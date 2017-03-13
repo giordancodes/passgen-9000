@@ -213,11 +213,10 @@ class PassGen9000 extends Component {
       // check if index has already been used
       if (!isInArray(charsTaken, randomlyChosen)){
         charsTaken.push(randomlyChosen);
-        console.log(charsTaken, randomlyChosen);
+        console.log(Substitutions[resultSplit[randomlyChosen]]);
+
       }
       
-
-      console.log(resultSplit[randomlyChosen], charsTaken);
     }
 
     console.log(result, result.length);
