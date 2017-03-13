@@ -19,3 +19,7 @@ export function slugify(text) {
 export function isLetter(str) {
   return str.length === 1 && str.match(/[a-z]/i);
 }
+
+export function isInArray(arr,obj) {
+    return (arr.indexOf(obj) != -1);
+}
