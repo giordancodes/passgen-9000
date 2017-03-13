@@ -175,8 +175,10 @@ class PassGen9000 extends Component {
 
     // generate password from SeedWords with chosen length
     while (l > result.length){
+
     // use custom word if desired
       result = result + distinct;
+
       // using n to switch between adjectives and nouns being added
       let n = 1;
       while (l > result.length){
@@ -197,12 +199,17 @@ class PassGen9000 extends Component {
     resultSplit = result.split("");
 
     // based on robustness, choose how many chars will be substituted
-    let integerToSubstitute = Math.floor(l * (r * .2));
-    console.log(integerToSubstitute);
+    let charsToSubstitute = Math.floor(l * (r * .2));
+    console.log(charsToSubstitute);
 
-    // go through result, randomly choose chars to be subbed
-    for (let i = 0; i < resultSplit.length; i++){
-      console.log(resultSplit[i]);
+    let charsTaken = [];
+
+    for (let i = 0; i < charsToSubstitute; i++){
+
+      // go through result, randomly choose chars to be subbed, add chosen index to array 
+      let randomlyChosen = rando(charsToSubstitute);
+      charsTaken.push(randomlyChosen);
+      console.log(resultSplit[randomlyChosen], charsTaken);
     }
 
     console.log(result, result.length);
