@@ -24,6 +24,8 @@ export function isInArray(arr,obj) {
   return (arr.indexOf(obj) != -1);
 }
 
-export function replaceAt(index, char) {
-  return this.substr(0, index) + char + this.substr(index+char.length);
+  // use: str = str.replaceAt(3, "a")
+export function strReplaceChar(str, index, char) {
+  if(index > str.length-1) return str;
+  return str.substr(0,index) + char + str.substr(index+1);
 }

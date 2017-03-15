@@ -8,7 +8,7 @@ import Generated from './Generated';
 import Heading from './Heading';
 import Error from './Error';
 
-import { slugify, rando, isLetter, isInArray, replaceAt } from './Helpers';
+import { slugify, rando, isLetter, isInArray, strReplaceChar } from './Helpers';
 
 import './passgen.css';
 
