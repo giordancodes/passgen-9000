@@ -213,13 +213,14 @@ class PassGen9000 extends Component {
       if (!isInArray(charsTaken, randomIndex)){
         let subArray = Substitutions[resultSplit[randomIndex]];
         let subArrayLength = Substitutions[resultSplit[randomIndex]].length;
+
         console.log(subArray, subArrayLength, subArray[rando(subArrayLength)]);
 
         charsTaken.push(randomIndex);
 
         console.log("str:",result, "index:",randomIndex, "char:",Substitutions[resultSplit[randomIndex]]);
 
-        result = strReplaceChar(result, randomIndex, Substitutions[resultSplit][randomIndex][0]);
+        result = strReplaceChar(result, randomIndex, subArray[rando(subArrayLength)]);
         
       }
       
