@@ -8,7 +8,7 @@ import Generated from './Generated';
 import Heading from './Heading';
 import Error from './Error';
 
-import { slugify, rando, isLetter, isInArray } from './Helpers';
+import { slugify, rando, isLetter, isInArray, replaceAt } from './Helpers';
 
 import './passgen.css';
 
@@ -208,13 +208,13 @@ class PassGen9000 extends Component {
 
       // go through result, randomly choose chars to be subbed, add chosen index to array 
       let randomlyChosen = rando(charsToSubstitute);
-      console.log(randomlyChosen);
 
-      // check if index has already been used
+      // check if index has already been used, swap single char wth random sub option
       if (!isInArray(charsTaken, randomlyChosen)){
         charsTaken.push(randomlyChosen);
-        console.log(Substitutions[resultSplit[randomlyChosen]]);
-
+        console.log(Substitutions[resultSplit[randomlyChosen]].length, charsTaken);
+        
+        
       }
       
     }

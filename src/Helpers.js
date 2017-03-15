@@ -21,5 +21,9 @@ export function isLetter(str) {
 }
 
 export function isInArray(arr,obj) {
-    return (arr.indexOf(obj) != -1);
+  return (arr.indexOf(obj) != -1);
+}
+
+export function replaceAt(index, char) {
+  return this.substr(0, index) + char + this.substr(index+char.length);
 }
