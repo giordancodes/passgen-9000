@@ -58,7 +58,8 @@ class PassGen9000 extends Component {
               this.state.generatedResult ?
         
               <h4>
-                <Generated generatedResult={ this.state.generatedResult }/>
+                <Generated  generatedResult={ this.state.generatedResult }
+                            vanillaResult={ this.state.vanillaResult } />
               </h4>
         
               : null
@@ -189,12 +190,12 @@ class PassGen9000 extends Component {
         }
         n ++;
       }
-      // console.log(result.search(distinct));
       if (l < result.length){
         result = "";
       }
     }
     console.log(result);
+    this.setState({ vanillaResult: result });
     let resultSplit;
     resultSplit = result.split("");
 
@@ -212,7 +213,7 @@ class PassGen9000 extends Component {
 
       // go through result, randomly choose characters to be subbed, add chosen index to array 
       let randomIndex = rando(charsToSubstitute);
-      
+
       // check if index has already been used, swap single char wth random sub option
       if (!isInArray(charsTaken, randomIndex)){
         let subArray = Substitutions[resultSplit[randomIndex]];
