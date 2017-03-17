@@ -194,21 +194,25 @@ class PassGen9000 extends Component {
         result = "";
       }
     }
-
+    console.log(result);
     let resultSplit;
     resultSplit = result.split("");
 
-    // based on robustness, choose how many chars will be substituted
-    let charsToSubstitute = Math.floor(l * (r * .2));
+    // high number from random seed comes from full chosen length value
+    let charsToSubstitute = Math.floor(l);
+    // let charsToSubstitute = Math.floor(l * (r * .2));
 
-    // array to hold index of random chars to sub
+    // array to hold indexes of random characters to substitute
     let charsTaken = [];
 
-    for (let i = 0; i < charsToSubstitute; i++){
+    // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
+    let indexesToSubstitute = charsToSubstitute * (r * .2);
 
-      // go through result, randomly choose chars to be subbed, add chosen index to array 
+    for (let i = 0; i < indexesToSubstitute; i++){
+
+      // go through result, randomly choose characters to be subbed, add chosen index to array 
       let randomIndex = rando(charsToSubstitute);
-
+      
       // check if index has already been used, swap single char wth random sub option
       if (!isInArray(charsTaken, randomIndex)){
         let subArray = Substitutions[resultSplit[randomIndex]];
