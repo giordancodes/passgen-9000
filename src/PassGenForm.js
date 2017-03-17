@@ -29,13 +29,15 @@ class PassGenForm extends Component{
 		    						next={ this.props.next }
                 		prev={ this.props.prev } />
 				
-				<Distinct form={ this.props.form }
-		    					updateField={ this.props.updateField }
-	    						next={ this.props.next }
-              		prev={ this.props.prev } />  
-
+				{ !this.props.aesthetic ?
+						<Distinct form={ this.props.form }
+											updateField={ this.props.updateField }
+											next={ this.props.next }
+											prev={ this.props.prev } />
+					: null
+				}
+				
 			  <Generate genPass={ this.props.genPass } />
-
 			</form>
     )
 	}

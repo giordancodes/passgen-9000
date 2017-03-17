@@ -19,7 +19,7 @@ class PassGen9000 extends Component {
 			chooseDistinctWord: false,
 			form:{
         length: 22,
-				robustness: 3,
+				robustness: 2,
         distinct: ""
 			},
       aesthetic: false,
@@ -43,6 +43,7 @@ class PassGen9000 extends Component {
                           genPass={ this.genPass }
                           form={ this.state.form }
                           robustnessDesc={ this.state.robustnessDesc }
+                          aesthetic={ this.state.aesthetic }
                           aestheticDesc={ this.state.aestheticDesc }
                           chooseDistinctWord={ this.state.chooseDistinctWord }
                           setDistinct={ this.setDistinct }
@@ -132,7 +133,6 @@ class PassGen9000 extends Component {
       currentStep = 5;
     }
     this.setState({ currentStep }, this.transition());
-    console.log(currentStep)
   }
 
   prev = (e) =>{
@@ -143,14 +143,12 @@ class PassGen9000 extends Component {
       currentStep = 1;
     }
     this.setState({ currentStep }, this.transition());
-    console.log(currentStep);
   }
 
   transition = () =>{
     let step = this.state.currentStep;
 
 
-    console.log(step);
   }
 
   clearError = () =>{
@@ -194,7 +192,6 @@ class PassGen9000 extends Component {
         result = "";
       }
     }
-    console.log(result);
     this.setState({ vanillaResult: result });
     let resultSplit;
     resultSplit = result.split("");
@@ -219,11 +216,7 @@ class PassGen9000 extends Component {
         let subArray = Substitutions[resultSplit[randomIndex]];
         let subArrayLength = Substitutions[resultSplit[randomIndex]].length;
 
-        console.log(subArray, subArrayLength, subArray[rando(subArrayLength)]);
-
         charsTaken.push(randomIndex);
-
-        console.log("str:",result, "index:",randomIndex, "char:",Substitutions[resultSplit[randomIndex]]);
 
         result = strReplaceChar(result, randomIndex, subArray[rando(subArrayLength)]);
         
@@ -231,7 +224,6 @@ class PassGen9000 extends Component {
       
     }
 
-    console.log(result, result.length);
     this.setState({ generatedResult: result });
 
   }
