@@ -193,40 +193,16 @@ class PassGen9000 extends Component {
       }
     }
     this.setState({ vanillaResult: result });
-    let resultSplit;
-    resultSplit = result.split("");
+    let resultSplit = result.split("");
 
     // high number from random seed comes from full chosen length value
     let charsToSubstitute = Math.floor(l);
     // let charsToSubstitute = Math.floor(l * (r * .2));
 
-    // // array to hold indexes of random characters to substitute
-    // let charsTaken = [];
-
     // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
     let indexesToSubstitute = Math.floor(charsToSubstitute * (r * .2));
 
-    console.log(indexesToSubstitute, charsToSubstitute, resultSplit, result);
     result = this.swapChars(indexesToSubstitute, charsToSubstitute, resultSplit, result);
-
-    // // begin the swapping
-    // for (let i = 0; i < indexesToSubstitute; i++){
-
-    //   // go through result, randomly choose characters to be subbed, add chosen index to array 
-    //   let randomIndex = rando(charsToSubstitute);
-
-    //   // check if index has already been used, swap single char wth random sub option
-    //   if (!isInArray(charsTaken, randomIndex)){
-    //     let subArray = Substitutions[resultSplit[randomIndex]];
-    //     let subArrayLength = Substitutions[resultSplit[randomIndex]].length;
-
-    //     charsTaken.push(randomIndex);
-
-    //     result = strReplaceChar(result, randomIndex, subArray[rando(subArrayLength)]);
-        
-    //   }
-      
-    // }
     
     console.log("result.length:", result.length);
     this.setState({ generatedResult: result });
@@ -240,27 +216,22 @@ class PassGen9000 extends Component {
     let swappedResult = result;
     // begin the swapping
     for (let i = 0; i < indexesToSubstitute; i++){
-      console.log(i, indexesToSubstitute);
 
       // go through result, randomly choose characters to be subbed, add chosen index to array 
       let randomIndex = rando(charsToSubstitute); 
 
-      // check if index has already been used, swap single char wth random sub option
+      // check if index has already been used, swap single char wth random sub option from array
       if (!isInArray(charsTaken, randomIndex)){
         let subArray = Substitutions[resultSplit[randomIndex]];
         let subArrayLength = Substitutions[resultSplit[randomIndex]].length;
 
         charsTaken.push(randomIndex);
-        console.log(charsTaken);
         swappedResult = strReplaceChar(swappedResult, randomIndex, subArray[rando(subArrayLength)]);
         
       }
-      
-
     }
     return swappedResult;
   }
-
 }
 
 export default PassGen9000;
