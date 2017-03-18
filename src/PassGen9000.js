@@ -206,6 +206,7 @@ class PassGen9000 extends Component {
     // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
     let indexesToSubstitute = charsToSubstitute * (r * .2);
 
+    // begin the swapping
     for (let i = 0; i < indexesToSubstitute; i++){
 
       // go through result, randomly choose characters to be subbed, add chosen index to array 
@@ -223,7 +224,8 @@ class PassGen9000 extends Component {
       }
       
     }
-
+    
+    console.log("result.length:", result.length);
     this.setState({ generatedResult: result });
 
   }
