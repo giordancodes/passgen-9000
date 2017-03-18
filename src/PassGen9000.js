@@ -200,13 +200,14 @@ class PassGen9000 extends Component {
     let charsToSubstitute = Math.floor(l);
     // let charsToSubstitute = Math.floor(l * (r * .2));
 
-    // array to hold indexes of random characters to substitute
-    let charsTaken = [];
+    // // array to hold indexes of random characters to substitute
+    // let charsTaken = [];
 
     // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
-    let indexesToSubstitute = charsToSubstitute * (r * .2);
+    let indexesToSubstitute = Math.floor(charsToSubstitute * (r * .2));
 
-    result = this.swapChars(indexesToSubstitute, charsToSubstitute, charsTaken, resultSplit, result);
+    console.log(indexesToSubstitute, charsToSubstitute, resultSplit, result);
+    result = this.swapChars(indexesToSubstitute, charsToSubstitute, resultSplit, result);
 
     // // begin the swapping
     // for (let i = 0; i < indexesToSubstitute; i++){
@@ -232,12 +233,17 @@ class PassGen9000 extends Component {
 
   }
 
-  swapChars = (indexesToSubstitute, charsToSubstitute, charsTaken, resultSplit, result) =>{
+  swapChars = (indexesToSubstitute, charsToSubstitute, resultSplit, result) =>{
+
+    // array to hold indexes of random characters to substitute
+    let charsTaken = [];
+    let swappedResult = result;
     // begin the swapping
     for (let i = 0; i < indexesToSubstitute; i++){
+      console.log(i, indexesToSubstitute);
 
       // go through result, randomly choose characters to be subbed, add chosen index to array 
-      let randomIndex = rando(charsToSubstitute);
+      let randomIndex = rando(charsToSubstitute); 
 
       // check if index has already been used, swap single char wth random sub option
       if (!isInArray(charsTaken, randomIndex)){
@@ -245,12 +251,14 @@ class PassGen9000 extends Component {
         let subArrayLength = Substitutions[resultSplit[randomIndex]].length;
 
         charsTaken.push(randomIndex);
-
-        return strReplaceChar(result, randomIndex, subArray[rando(subArrayLength)]);
+        console.log(charsTaken);
+        swappedResult = strReplaceChar(swappedResult, randomIndex, subArray[rando(subArrayLength)]);
         
       }
       
+
     }
+    return swappedResult;
   }
 
 }
