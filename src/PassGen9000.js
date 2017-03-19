@@ -164,13 +164,14 @@ class PassGen9000 extends Component {
     distinct = slugify(this.state.form.distinct);
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
+    let specialsLength = Substitutions["specials"].length;
 
-    // if custom word is longer than desired length, throw error and end
-    if (l - 3 < distinct.length){
+    // if custom word is longer than desired length, throw error, end
+    if (l < distinct.length){
       this.setState({ error: "you've entered a custom word that is not suited your desired password length, please adjust", generatedResult: "" });
       this.clearError();
       return;
-    }
+    } 
 
     // generate password from SeedWords with chosen length
     while (l > result.length){

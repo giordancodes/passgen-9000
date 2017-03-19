@@ -205,3 +205,6 @@ section.intro .range-count {
   section.intro .range-count p {
     width: 24px;
     text-align: right; }
+
+section.result h4 {
+  font-weight: 100; }
