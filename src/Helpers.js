@@ -4,7 +4,7 @@ export function rando(max) {
 }
 
 export function randomChars(){
-	return Math.random().toString(36).substring(7);
+	return Math.random().toString(36).substring(2);
 }
 
 export function slugify(text) {

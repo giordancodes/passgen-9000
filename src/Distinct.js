@@ -13,8 +13,8 @@ class Distinct extends Component{
                   onChange={ this.props.updateField }
                   value={ this.props.form.distinct } />
           <p>
-            <Icons next={ this.props.next }
-                   prev={ this.props.prev } />
+            <Icons  next={ this.props.next }
+                    prev={ this.props.prev } />
           </p>
         </div>
       </label>

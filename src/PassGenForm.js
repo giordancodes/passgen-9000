@@ -6,7 +6,6 @@ import Aesthetic from './Aesthetic';
 import Distinct from './Distinct';
 import Generate from './Generate';
 import ReProcess from './ReProcess';
-import Icons from './Icons';
 
 class PassGenForm extends Component{
 	render(){

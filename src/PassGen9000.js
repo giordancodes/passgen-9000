@@ -100,7 +100,6 @@ class PassGen9000 extends Component {
 
   updateCheck = () =>{
     let aesthetic = this.state.aesthetic;
-    let aestheticDesc = this.state.aestheticDesc;
 
     aesthetic = !aesthetic;
 
@@ -152,23 +151,29 @@ class PassGen9000 extends Component {
   }
 
   clearError = () =>{
-    setTimeout(() =>{ this.setState({ error: '' })} , 5000);
+    setTimeout(() =>{ this.setState({ error: '' })} , 8000);
   }
 
-  genPass = (e, l, r, distinct) =>{
+  genPass = (e, l, r, distinct, a) =>{
     e.preventDefault();
 
     let result = "";
     l = this.state.form.length;
     r = this.state.form.robustness;
     distinct = slugify(this.state.form.distinct);
+    a = this.state.aesthetic;
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
     let specialsLength = Substitutions["specials"].length;
 
+    genWithSpecials:
+    while (a){
+      
+    }
+
     // if custom word is longer than desired length, throw error, end
     if (l < distinct.length){
-      this.setState({ error: "you've entered a custom word that is not suited your desired password length, please adjust", generatedResult: "" });
+      this.setState({ error: `custom word that is longer than your desired password length, please adjust. chosen length: ${l}, custom word length: ${distinct.length}`, generatedResult: "" });
       this.clearError();
       return;
     }
@@ -203,7 +208,6 @@ class PassGen9000 extends Component {
 
     // high number from random seed comes from full chosen length value
     let charsToSubstitute = Math.floor(l);
-    // let charsToSubstitute = Math.floor(l * (r * .2));
 
     // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
     let indexesToSubstitute = Math.floor(charsToSubstitute * (r * .2));
