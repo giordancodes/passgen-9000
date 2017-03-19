@@ -171,7 +171,12 @@ class PassGen9000 extends Component {
       this.setState({ error: "you've entered a custom word that is not suited your desired password length, please adjust", generatedResult: "" });
       this.clearError();
       return;
-    } 
+    }
+    
+    // if custom word is 1 letter short, add a special char
+    if (l - 1 === distinct.length){
+      result = result + Substitutions["specials"][rando(specialsLength)];
+    }
 
     // generate password from SeedWords with chosen length
     while (l > result.length){
