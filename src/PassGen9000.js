@@ -27,7 +27,8 @@ class PassGen9000 extends Component {
       robustnessDesc: null,
       generatedResult: null,
       error: null,
-      currentStep: 1
+      currentStep: 1,
+      vanillaResult: null
 		}
 	}
 
@@ -49,6 +50,7 @@ class PassGen9000 extends Component {
                           setDistinct={ this.setDistinct }
                           currentStep={ this.currentStep }
                           onSwapChars={ this.onSwapChars }
+                          vanillaResult={ this.state.vanillaResult }
                           next={ this.next }
                           prev={ this.prev } />
         
@@ -75,6 +77,7 @@ class PassGen9000 extends Component {
   componentDidMount() { 
     this.introAnimation();
     this.updateDesc();
+    console.log(this.state.vanillaResult);
   }
 
   introAnimation(){
@@ -232,7 +235,6 @@ class PassGen9000 extends Component {
     r = this.state.vanillaResult;
     console.log(i,l,r);
     
-
     let result = this.swapChars(i, l, r);
     this.setState({ generatedResult: result });
   }

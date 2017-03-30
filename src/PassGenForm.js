@@ -39,7 +39,12 @@ class PassGenForm extends Component{
 				
 			  <Generate genPass={ this.props.genPass } />
 
-				<ReProcess onSwapChars={ this.props.onSwapChars } />
+				{ 
+					this.props.vanillaResult === null 
+						?	null
+						: <ReProcess onSwapChars={ this.props.onSwapChars } />
+				}
+				
 
 			</form>
     )
