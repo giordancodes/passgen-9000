@@ -48,6 +48,7 @@ class PassGen9000 extends Component {
                           chooseDistinctWord={ this.state.chooseDistinctWord }
                           setDistinct={ this.setDistinct }
                           currentStep={ this.currentStep }
+                          onSwapChars={ this.onSwapChars }
                           next={ this.next }
                           prev={ this.prev } />
         
@@ -77,11 +78,11 @@ class PassGen9000 extends Component {
   }
 
   introAnimation(){
-    setTimeout(() => { document.getElementById("title").style.fontSize = "9vw" }, 1500);
-    setTimeout(() => { document.getElementById("title").style.height = "10vh" }, 3000);
-    setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 3000);
+    setTimeout(() => { document.getElementById("title").style.fontSize = "9vw" }, 500);
+    setTimeout(() => { document.getElementById("title").style.height = "10vh" }, 500);
+    setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 500);
     // inputs
-    setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 3700);
+    setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 500);
   }
 
   setDistinct = (e) => {
@@ -154,7 +155,7 @@ class PassGen9000 extends Component {
     setTimeout(() =>{ this.setState({ error: '' })} , 8000);
   }
 
-  genPass = (e, l, r, distinct, a) =>{
+  genPass = (e, l, r, distinct, a, rework, orig) =>{
     e.preventDefault();
 
     let result = "";
@@ -165,6 +166,7 @@ class PassGen9000 extends Component {
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
     let specialsLength = Substitutions["specials"].length;
+    orig = this.state.vanillaResult;
 
     genWithSpecials:
     while (a){
@@ -204,31 +206,49 @@ class PassGen9000 extends Component {
       }
     }
     this.setState({ vanillaResult: result });
-    let resultSplit = result.split("");
+    // let resultSplit = result.split("");
 
-    // high number from random seed comes from full chosen length value
-    let charsToSubstitute = Math.floor(l);
+    console.log(rework, orig);
+    if (rework){
+      result = orig;
+    }
 
     // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
-    let indexesToSubstitute = Math.floor(charsToSubstitute * (r * .2));
+    let indexesToSubstitute = Math.floor(l * (r * .2));
 
-    result = this.swapChars(indexesToSubstitute, charsToSubstitute, resultSplit, result);
+    this.setState({ indexesToSubstitute })
+
+    result = this.swapChars(indexesToSubstitute, l, result);
     
     console.log("result.length:", result.length);
     this.setState({ generatedResult: result });
 
   }
 
-  swapChars = (indexesToSubstitute, charsToSubstitute, resultSplit, result) =>{
+  onSwapChars = (e, i, l, r) =>{
+    e.preventDefault();
+    i = this.state.indexesToSubstitute;
+    l = this.state.form.length;
+    r = this.state.vanillaResult;
+    console.log(i,l,r);
+    
+
+    let result = this.swapChars(i, l, r);
+    this.setState({ generatedResult: result });
+  }
+
+  swapChars = (indexesToSubstitute, l, result) =>{
 
     // array to hold indexes of random characters to substitute
     let charsTaken = [];
     let swappedResult = result;
+    let resultSplit = result.split("");
+
     // begin the swapping
     for (let i = 0; i < indexesToSubstitute; i++){
 
       // go through result, randomly choose characters to be subbed, add chosen index to array 
-      let randomIndex = rando(charsToSubstitute); 
+      let randomIndex = rando(l); 
 
       // check if index has already been used, swap single char wth random sub option from array
       if (!isInArray(charsTaken, randomIndex)){
