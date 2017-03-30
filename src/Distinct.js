@@ -6,7 +6,7 @@ class Distinct extends Component{
 	render(){
 		return(
       <label htmlFor="distinct">
-        <p className="main-label">distinct word/phrase <span>(optional)</span></p>
+        <p className="main-label">custom input <span>(optional)</span></p>
         <div className="labels">
           <input  type="text"
                   id="distinct"
@@ -17,6 +17,7 @@ class Distinct extends Component{
                     prev={ this.props.prev } />
           </p>
         </div>
+        <p>{ this.props.dLength }</p>
       </label>
     )
 	}

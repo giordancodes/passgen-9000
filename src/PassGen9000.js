@@ -16,7 +16,6 @@ class PassGen9000 extends Component {
 	constructor(){
 		super();
 		this.state={
-			chooseDistinctWord: false,
 			form:{
         length: 22,
 				robustness: 2,
@@ -47,10 +46,10 @@ class PassGen9000 extends Component {
                           aesthetic={ this.state.aesthetic }
                           aestheticDesc={ this.state.aestheticDesc }
                           chooseDistinctWord={ this.state.chooseDistinctWord }
-                          setDistinct={ this.setDistinct }
                           currentStep={ this.currentStep }
                           onSwapChars={ this.onSwapChars }
                           vanillaResult={ this.state.vanillaResult }
+                          dLength={ this.state.dLength }
                           next={ this.next }
                           prev={ this.prev } />
         
@@ -58,16 +57,10 @@ class PassGen9000 extends Component {
             
           </section>
           <section className="result">
-            {
-              this.state.generatedResult ?
-        
               <h4>
                 <Generated  generatedResult={ this.state.generatedResult }
                             vanillaResult={ this.state.vanillaResult } />
               </h4>
-        
-              : null
-            }
           </section>
         </div>
       </div>
@@ -77,7 +70,6 @@ class PassGen9000 extends Component {
   componentDidMount() { 
     this.introAnimation();
     this.updateDesc();
-    console.log(this.state.vanillaResult);
   }
 
   introAnimation(){
@@ -88,18 +80,13 @@ class PassGen9000 extends Component {
     setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 500);
   }
 
-  setDistinct = (e) => {
-  	let chooseDistinctWord = this.state.chooseDistinctWord;
-  	chooseDistinctWord = !chooseDistinctWord;
-  	this.setState({ chooseDistinctWord })
-  }
-
   updateField = (e) =>{
   	let form = this.state.form;
     form[e.target.id] = e.target.value;
+    let dLength = this.state.form.distinct.length;
     this.updateDesc();
 
-    this.setState({ form });
+    this.setState({ form, dLength });
   }
 
   updateCheck = () =>{
@@ -108,8 +95,9 @@ class PassGen9000 extends Component {
     aesthetic = !aesthetic;
 
     { 
-      aesthetic ? this.setState({ aestheticDesc: "characters" })
-      : this.setState({ aestheticDesc: "words" })
+      aesthetic
+        ? this.setState({ aestheticDesc: "characters" })
+        : this.setState({ aestheticDesc: "words" })
     }
 
     this.setState({ aesthetic });
