@@ -22,7 +22,7 @@ export function isLetter(str) {
 }
 
 export function isInArray(arr,obj) {
-  return (arr.indexOf(obj) != -1);
+  return (arr.indexOf(obj) !== -1);
 }
 
   // use: str = str.replaceAt(3, "a")

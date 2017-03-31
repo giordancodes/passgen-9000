@@ -8,7 +8,7 @@ import Generated from './Generated';
 import Heading from './Heading';
 import Error from './Error';
 
-import { slugify, rando, isLetter, isInArray, strReplaceChar } from './Helpers';
+import { slugify, rando, isInArray, strReplaceChar } from './Helpers';
 
 import './passgen.css';
 
@@ -67,8 +67,11 @@ class PassGen9000 extends Component {
   }
 
   componentDidMount() { 
+    let l = this.state.form.length;
+    let r = this.state.form.robustness;
     this.introAnimation();
     this.updateDesc();
+    this.setState({ indexesToSubstitute: Math.floor(l * (r * .2)) })
   }
 
   introAnimation(){
@@ -114,7 +117,8 @@ class PassGen9000 extends Component {
 
     robustnessDesc = `${r * 20}%`;
 
-    if (r == 5){
+  // using "5" as just 5 is not recognized as type, so == is needed instead of === to qualify 
+    if (r === "5"){
       robustnessDesc = "99%";
     }
 
@@ -201,6 +205,8 @@ class PassGen9000 extends Component {
       }
     }
     this.setState({ vanillaResult: result });
+
+    this.setState({ indexesToSubstitute })
 
     result = this.swapChars(indexesToSubstitute, l, result);
     
