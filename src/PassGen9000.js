@@ -83,9 +83,15 @@ class PassGen9000 extends Component {
   	let form = this.state.form;
     form[e.target.id] = e.target.value;
     let dLength = this.state.form.distinct.length;
+    let l = this.state.form.length;
+    let r = this.state.form.robustness;
+
     this.updateDesc();
 
-    this.setState({ form, dLength });
+    // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
+    let indexesToSubstitute = Math.floor(l * (r * .2));
+
+    this.setState({ form, dLength, indexesToSubstitute });
   }
 
   updateCheck = () =>{
@@ -137,8 +143,6 @@ class PassGen9000 extends Component {
 
   transition = () =>{
     let step = this.state.currentStep;
-
-
   }
 
   clearError = () =>{
@@ -153,6 +157,7 @@ class PassGen9000 extends Component {
     r = this.state.form.robustness;
     distinct = slugify(this.state.form.distinct);
     a = this.state.aesthetic;
+    let indexesToSubstitute = this.state.indexesToSubstitute;
     let adjLength = SeedWords["sfw-adj"].length;
     let nounLength = SeedWords["sfw-noun"].length;
     let specialsLength = Substitutions["specials"].length;
@@ -197,11 +202,6 @@ class PassGen9000 extends Component {
     }
     this.setState({ vanillaResult: result });
 
-    // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
-    let indexesToSubstitute = Math.floor(l * (r * .2));
-
-    this.setState({ indexesToSubstitute })
-
     result = this.swapChars(indexesToSubstitute, l, result);
     
     this.setState({ generatedResult: result });
@@ -227,25 +227,21 @@ class PassGen9000 extends Component {
 
     // begin the swapping
     for (let i = 0; i < indexesToSubstitute; i++){
-      console.log(i);
 
       // go through result, randomly choose characters to be subbed, add chosen index to array 
       let randomIndex = rando(l); 
 
       // check if index has already been used, swap single char with random sub option from array
-
-      // THIS IS NOT SWAPPING IF INDEX IS IN ARRAY, AND ALTERS THE VALUE OF CHARS SWAPPED
+      // if it has been used, push i back to compensate
       if (!isInArray(charsTaken, randomIndex)){
         let subArray = Substitutions[resultSplit[randomIndex]];
         let subArrayLength = Substitutions[resultSplit[randomIndex]].length;
 
         charsTaken.push(randomIndex);
         swappedResult = strReplaceChar(swappedResult, randomIndex, subArray[rando(subArrayLength)]);
-        
       } else {
         i--;
       }
-        console.log(charsTaken);
     }
     return swappedResult;
   }
