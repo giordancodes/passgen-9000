@@ -4,6 +4,7 @@ export function rando(max) {
 }
 
 export function randomChars(){
+  // toString(36) uses all available chars, substring(2) removes the 0. at the beginning of the generated result
 	return Math.random().toString(36).substring(2);
 }
 

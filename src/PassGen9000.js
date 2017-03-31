@@ -45,7 +45,6 @@ class PassGen9000 extends Component {
                           robustnessDesc={ this.state.robustnessDesc }
                           aesthetic={ this.state.aesthetic }
                           aestheticDesc={ this.state.aestheticDesc }
-                          chooseDistinctWord={ this.state.chooseDistinctWord }
                           currentStep={ this.currentStep }
                           onSwapChars={ this.onSwapChars }
                           vanillaResult={ this.state.vanillaResult }
@@ -197,12 +196,6 @@ class PassGen9000 extends Component {
       }
     }
     this.setState({ vanillaResult: result });
-    // let resultSplit = result.split("");
-
-    console.log(rework, orig);
-    if (rework){
-      result = orig;
-    }
 
     // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
     let indexesToSubstitute = Math.floor(l * (r * .2));
@@ -211,7 +204,6 @@ class PassGen9000 extends Component {
 
     result = this.swapChars(indexesToSubstitute, l, result);
     
-    console.log("result.length:", result.length);
     this.setState({ generatedResult: result });
 
   }
@@ -221,7 +213,6 @@ class PassGen9000 extends Component {
     i = this.state.indexesToSubstitute;
     l = this.state.form.length;
     r = this.state.vanillaResult;
-    console.log(i,l,r);
     
     let result = this.swapChars(i, l, r);
     this.setState({ generatedResult: result });
@@ -236,11 +227,14 @@ class PassGen9000 extends Component {
 
     // begin the swapping
     for (let i = 0; i < indexesToSubstitute; i++){
+      console.log(i);
 
       // go through result, randomly choose characters to be subbed, add chosen index to array 
       let randomIndex = rando(l); 
 
-      // check if index has already been used, swap single char wth random sub option from array
+      // check if index has already been used, swap single char with random sub option from array
+
+      // THIS IS NOT SWAPPING IF INDEX IS IN ARRAY, AND ALTERS THE VALUE OF CHARS SWAPPED
       if (!isInArray(charsTaken, randomIndex)){
         let subArray = Substitutions[resultSplit[randomIndex]];
         let subArrayLength = Substitutions[resultSplit[randomIndex]].length;
@@ -248,7 +242,10 @@ class PassGen9000 extends Component {
         charsTaken.push(randomIndex);
         swappedResult = strReplaceChar(swappedResult, randomIndex, subArray[rando(subArrayLength)]);
         
+      } else {
+        i--;
       }
+        console.log(charsTaken);
     }
     return swappedResult;
   }
