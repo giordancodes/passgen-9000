@@ -84,7 +84,11 @@ code {
 label {
   display: block; }
 
+input {
+  cursor: pointer; }
+
 input[type=range] {
+  height: 15px;
   -webkit-appearance: none;
   background: none; }
   input[type=range]::-webkit-slider-runnable-track {

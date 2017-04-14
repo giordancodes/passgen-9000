@@ -24,7 +24,11 @@ label{
 	display: block;
 }
 // INPUTS
+input{
+	cursor: pointer;
+}
 input[type=range]{
+	height: 15px;
 	-webkit-appearance:none;
 	background:none;
 	&::-webkit-slider-runnable-track{
