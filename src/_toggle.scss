@@ -14,10 +14,10 @@
   user-select: none;
 }
 input.cmn-toggle-round + label {
-  padding: 2px;
-  width: 120px;
-  height: 60px;
-  background-color: #dddddd;
+  padding: 9px;
+  width: 90%;
+  height: 20px;
+  background-color: #aaa;
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
   -ms-border-radius: 60px;
@@ -34,7 +34,7 @@ input.cmn-toggle-round + label:before, input.cmn-toggle-round + label:after {
 }
 input.cmn-toggle-round + label:before {
   right: 1px;
-  background-color: #f1f1f1;
+  background-color: #444;
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
   -ms-border-radius: 60px;

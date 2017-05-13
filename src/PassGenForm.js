@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Length from './Length';
-import Robustness from './Robustness';
+import Strength from './Strength';
 import Aesthetic from './Aesthetic';
 import Distinct from './Distinct';
 import Generate from './Generate';
@@ -17,9 +17,9 @@ class PassGenForm extends Component{
 		    				next={ this.props.next }
                 prev={ this.props.prev } />
 
-        <Robustness form={ this.props.form }
+        <Strength 	form={ this.props.form }
 		    						updateField={ this.props.updateField }
-		    						robustnessDesc={ this.props.robustnessDesc }
+		    						strengthDesc={ this.props.strengthDesc }
 		    						next={ this.props.next }
                 		prev={ this.props.prev } />
 

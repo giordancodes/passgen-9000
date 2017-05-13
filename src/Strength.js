@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 
 import Icons from './Icons';
 
-class Length extends Component{
+class Strength extends Component{
 	render(){
 		return(
-      <label htmlFor="length">
-        <p className="main-label">length</p>
+      <label htmlFor="strength">
+        <p className="main-label">strength</p>
         <div className="labels">
           <input  type="range"
-                  min="8"
-                  max="32"
-                  value={ this.props.form.length }
+                  min="1"
+                  max="5"
+                  value={ this.props.form.strength }
                   onChange={ this.props.updateField }
-                  id="length" />
+                  id="strength" />
           <p>
-            { this.props.form.length } 
+            { this.props.strengthDesc }
             <Icons  next={ this.props.next }
                     prev={ this.props.prev } />
           </p>
@@ -25,4 +25,4 @@ class Length extends Component{
 	}
 }
 
-export default Length;
+export default Strength;

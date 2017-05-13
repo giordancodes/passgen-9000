@@ -6,7 +6,7 @@ $opensans: 'Open Sans', sans-serif;
 
 // PARENT ELEMENTS
 html, body{
-	background: #444;
+	background: #111;
 	font-family: $lato;
 }
 a{
@@ -27,24 +27,24 @@ label{
 input{
 	cursor: pointer;
 }
-input[type=range]{
-	height: 15px;
-	-webkit-appearance:none;
-	background:none;
-	&::-webkit-slider-runnable-track{
-		border: none;
-		background: goldenrod;
-		height: 4px;
-		border-radius: 10px;		
-	}
-	&::-webkit-slider-thumb{
-		-webkit-appearance:none;
-		background: lime;
-		height: 16px;
-		width: 16px;
-		border-radius: 0 0 20px 20px;
-	}
-}
+// input[type=range]{
+// 	height: 15px;
+// 	-webkit-appearance:none;
+// 	background:none;
+// 	&::-webkit-slider-runnable-track{
+// 		border: none;
+// 		background: goldenrod;
+// 		height: 4px;
+// 		border-radius: 10px;		
+// 	}
+// 	&::-webkit-slider-thumb{
+// 		-webkit-appearance:none;
+// 		background: lime;
+// 		height: 16px;
+// 		width: 16px;
+// 		border-radius: 0 0 20px 20px;
+// 	}
+// }
 // WRAPPER
 .wrapper{
 	margin: 0 auto;

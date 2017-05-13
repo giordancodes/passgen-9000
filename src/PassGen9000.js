@@ -18,16 +18,17 @@ class PassGen9000 extends Component {
 		this.state={
 			form:{
         length: 22,
-				robustness: 2,
+				strength: 2,
         distinct: ""
 			},
       aesthetic: false,
       aestheticDesc: "words",
-      robustnessDesc: null,
+      strengthDesc: null,
       generatedResult: null,
       error: null,
       currentStep: 1,
-      vanillaResult: null
+      vanillaResult: null,
+      dLength: 0
 		}
 	}
 
@@ -42,7 +43,7 @@ class PassGen9000 extends Component {
                           updateCheck={ this.updateCheck }
                           genPass={ this.genPass }
                           form={ this.state.form }
-                          robustnessDesc={ this.state.robustnessDesc }
+                          strengthDesc={ this.state.strengthDesc }
                           aesthetic={ this.state.aesthetic }
                           aestheticDesc={ this.state.aestheticDesc }
                           currentStep={ this.currentStep }
@@ -68,7 +69,7 @@ class PassGen9000 extends Component {
 
   componentDidMount() { 
     let l = this.state.form.length;
-    let r = this.state.form.robustness;
+    let r = this.state.form.strength;
     this.introAnimation();
     this.updateDesc();
     this.setState({ indexesToSubstitute: Math.floor(l * (r * .2)) })
@@ -87,11 +88,11 @@ class PassGen9000 extends Component {
     form[e.target.id] = e.target.value;
     let dLength = this.state.form.distinct.length;
     let l = this.state.form.length;
-    let r = this.state.form.robustness;
+    let r = this.state.form.strength;
 
     this.updateDesc();
 
-    // set a finite number of random indexes swapped, multiplied by .2 per level of robustness 
+    // set a finite number of random indexes swapped, multiplied by .2 per level of strength 
     let indexesToSubstitute = Math.floor(l * (r * .2));
 
     this.setState({ form, dLength, indexesToSubstitute });
@@ -112,17 +113,17 @@ class PassGen9000 extends Component {
   }
 
   updateDesc = () =>{
-    let robustnessDesc = this.state.robustnessDesc;
-    let r = this.state.form.robustness;
+    let strengthDesc = this.state.strengthDesc;
+    let r = this.state.form.strength;
 
-    robustnessDesc = `${r * 20}%`;
+    strengthDesc = `${r * 20}%`;
 
   // using "5" as just 5 is not recognized as type, so == is needed instead of === to qualify 
     if (r === "5"){
-      robustnessDesc = "99%";
+      strengthDesc = "99%";
     }
 
-    this.setState({ robustnessDesc });
+    this.setState({ strengthDesc });
   }
 
   next = (e) =>{
@@ -158,7 +159,7 @@ class PassGen9000 extends Component {
 
     let result = "";
     l = this.state.form.length;
-    r = this.state.form.robustness;
+    r = this.state.form.strength;
     distinct = slugify(this.state.form.distinct);
     a = this.state.aesthetic;
     let indexesToSubstitute = this.state.indexesToSubstitute;
