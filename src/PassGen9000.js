@@ -18,7 +18,7 @@ class PassGen9000 extends Component {
 		this.state={
 			form:{
 				length: 22,
-				strength: 2,
+				strength: 3,
 				distinct: ""
 			},
 			aesthetic: false,
@@ -74,7 +74,7 @@ class PassGen9000 extends Component {
 		let r = this.state.form.strength;
 		this.introAnimation();
 		this.updateDesc();
-		this.setState({ indexesToSubstitute: Math.floor(l * (r * .2)) })
+		this.setState({ indexesToSubstitute: Math.floor(l * (r * .12)) })
 	}
 
 	introAnimation(){
@@ -123,33 +123,49 @@ class PassGen9000 extends Component {
 		let l = this.state.form.length;
 
 		lengthDesc[0] = l;
-		strengthDesc[0] = `${r * 20}%`;
+		strengthDesc[0] = `${r * 20}`;
 
-
-		switch(true) {
-			case l < 12:
+		for (let property of lengthDesc) {
+			if (property < 12) {
 				lengthDesc[1] = "weak";
-				break;
-			case l > 11 && l < 20:
+			} else if (property > 11 && property < 20) {
 				lengthDesc[1] = "medium";
-				break;
-			case l > 19:
+			} else if (property > 19) {
 				lengthDesc[1] = "strong";
-				break;
-			case r < 2:
-				strengthDesc[1] = "weak";
-				break;
-			case r === 2 || r === 3:
-				strengthDesc[1] = "medium";
-				break;
-			case r === 4:
-				strengthDesc[1] = "strong";
-				break;
-			case r === 5:
-			// no password can truly be 100% effective
-				strengthDesc = ["99%", "strong"];
-				break;
+			}
 		}
+		
+		for (let property of strengthDesc) {
+			console.log(property);
+			if (property <= 40) {
+				strengthDesc[1] = "weak";
+			} else if (property >= 41 && property <= 79) {
+				strengthDesc[1] = "medium";
+			} else if (property >= 80 && property <= 99) {
+				strengthDesc[1] = "strong";
+			} else if (property == 100) {
+		//  no password can truly be 100% effective
+				strengthDesc = [99, "strong"];
+			}
+		}
+
+		// switch(true) {
+		// 	case l < 12:
+		// 		lengthDesc[1] = "weak";
+		// 		break;
+		// 	case r < 2:
+		// 		strengthDesc[1] = "weak";
+		// 		break;
+		// 	case r === 2 || r === 3:
+		// 	case (l > 11 && l < 20):
+		// 		strengthDesc[1] = "medium";
+		// 		break;
+		// 	case r === 4 || l > 19:
+		// 		strengthDesc[1] = "strong";
+		// 		break;
+		// 	case r === 5:
+		// 		break;
+		// }
 
 		this.setState({ strengthDesc, lengthDesc });
 	}
