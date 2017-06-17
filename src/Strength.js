@@ -6,8 +6,8 @@ class Strength extends Component{
 	render(){
 		return(
 			<label htmlFor="strength">
-				<p className="main-label">strength</p>
 				<div className="labels">
+					<p className="main-label">strength</p>
 					<input  type="range"
 									min="1"
 									max="5"

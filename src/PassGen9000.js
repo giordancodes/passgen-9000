@@ -35,7 +35,7 @@ class PassGen9000 extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="full-page">
 				<Heading />
 				<div className="wrapper">
 					<section className="intro">
@@ -79,8 +79,7 @@ class PassGen9000 extends Component {
 
 	introAnimation(){
 		setTimeout(() => { document.getElementById("title").style.fontSize = "9vw" }, 500);
-		setTimeout(() => { document.getElementById("title").style.textAlign = "left" }, 500);
-		setTimeout(() => { document.getElementById("title").style.height = "10vh" }, 500);
+		setTimeout(() => { document.getElementById("title").style.height = "2vw" }, 500);
 		setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 500);
 		// inputs
 		setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 500);
@@ -136,7 +135,6 @@ class PassGen9000 extends Component {
 		}
 		
 		for (let property of strengthDesc) {
-			console.log(property);
 			if (property <= 40) {
 				strengthDesc[1] = "weak";
 			} else if (property >= 41 && property <= 79) {

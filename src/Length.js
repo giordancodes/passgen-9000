@@ -6,8 +6,8 @@ class Length extends Component{
 	render(){
 		return(
       <label htmlFor="length">
-        <p className="main-label">length</p>
         <div className="labels">
+          <p className="main-label">length</p>
           <input  type="range"
                   min="8"
                   max="32"
