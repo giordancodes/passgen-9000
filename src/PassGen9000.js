@@ -119,10 +119,20 @@ class PassGen9000 extends Component {
 		let r = this.state.form.strength;
 
 		strengthDesc[0] = `${r * 20}%`;
+		console.log(r);
+		switch(true) {
+			case r < 2:
+				strengthDesc[1] = "weak";
+				break;
+			case r == 2:
+				strengthDesc[1] = "medium";
+				break;
+		}
+
 
 	// using "5" as just 5 is not recognized as type, so == is needed instead of === to qualify 
 		if (r === "5"){
-			strengthDesc = [99, "strong"];
+			strengthDesc = ["99%", "strong"];
 		}
 
 		this.setState({ strengthDesc });

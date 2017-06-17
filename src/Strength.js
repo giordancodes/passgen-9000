@@ -14,7 +14,7 @@ class Strength extends Component{
 									value={ this.props.form.strength }
 									onChange={ this.props.updateField }
 									id="strength" />
-					<p className={ this.props.strengthClass }>
+					<p className={ this.props.strengthDesc[1] }>
 						{ this.props.strengthDesc[0] }
 						<Icons  next={ this.props.next }
 										prev={ this.props.prev } />
