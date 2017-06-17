@@ -14,6 +14,7 @@ class PassGenForm extends Component{
 
 		    <Length form={ this.props.form }
 		    				updateField={ this.props.updateField }
+								lengthDesc={ this.props.lengthDesc }
 		    				next={ this.props.next }
                 prev={ this.props.prev } />
 

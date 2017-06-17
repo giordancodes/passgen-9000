@@ -18,11 +18,12 @@ class PassGen9000 extends Component {
 		this.state={
 			form:{
 				length: 22,
-				strength: [2],
+				strength: 2,
 				distinct: ""
 			},
 			aesthetic: false,
 			aestheticDesc: "words",
+			lengthDesc: [null ,"medium"],
 			strengthDesc: [null ,"medium"],
 			generatedResult: null,
 			error: null,
@@ -44,6 +45,7 @@ class PassGen9000 extends Component {
 													genPass={ this.genPass }
 													form={ this.state.form }
 													strengthDesc={ this.state.strengthDesc }
+													lengthDesc={ this.state.lengthDesc }
 													aesthetic={ this.state.aesthetic }
 													aestheticDesc={ this.state.aestheticDesc }
 													currentStep={ this.currentStep }
@@ -114,28 +116,42 @@ class PassGen9000 extends Component {
 	}
 
 	updateDesc = () =>{
+		let lengthDesc = this.state.lengthDesc;
 		let strengthDesc = this.state.strengthDesc;
 		let strengthCalc = this.state.strengthCalc;
 		let r = this.state.form.strength;
+		let l = this.state.form.length;
 
+		lengthDesc[0] = l;
 		strengthDesc[0] = `${r * 20}%`;
-		console.log(r);
+
+
 		switch(true) {
+			case l < 12:
+				lengthDesc[1] = "weak";
+				break;
+			case l > 11 && l < 20:
+				lengthDesc[1] = "medium";
+				break;
+			case l > 19:
+				lengthDesc[1] = "strong";
+				break;
 			case r < 2:
 				strengthDesc[1] = "weak";
 				break;
-			case r == 2:
+			case r === 2 || r === 3:
 				strengthDesc[1] = "medium";
+				break;
+			case r === 4:
+				strengthDesc[1] = "strong";
+				break;
+			case r === 5:
+			// no password can truly be 100% effective
+				strengthDesc = ["99%", "strong"];
 				break;
 		}
 
-
-	// using "5" as just 5 is not recognized as type, so == is needed instead of === to qualify 
-		if (r === "5"){
-			strengthDesc = ["99%", "strong"];
-		}
-
-		this.setState({ strengthDesc });
+		this.setState({ strengthDesc, lengthDesc });
 	}
 
 	next = (e) =>{

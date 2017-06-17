@@ -14,8 +14,8 @@ class Length extends Component{
                   value={ this.props.form.length }
                   onChange={ this.props.updateField }
                   id="length" />
-          <p>
-            { this.props.form.length } 
+          <p className={ this.props.lengthDesc[1] }>
+            { this.props.lengthDesc[0] } 
             <Icons  next={ this.props.next }
                     prev={ this.props.prev } />
           </p>

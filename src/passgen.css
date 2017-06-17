@@ -163,10 +163,13 @@ section.intro label {
     width: 200px; }
     section.intro label input + p {
       font-weight: 100;
-      color: lime;
       transition: color .4s; }
       section.intro label input + p.weak {
         color: crimson; }
+      section.intro label input + p.medium {
+        color: yellow; }
+      section.intro label input + p.strong {
+        color: lime; }
   section.intro label input[type="text"] {
     width: 208px;
     padding: 5px;
