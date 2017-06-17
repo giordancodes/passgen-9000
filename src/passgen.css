@@ -95,10 +95,9 @@ input {
 h1 {
   font-size: 13vw;
   color: #444;
-  text-align: center;
-  text-shadow: -2px -2px lime;
+  text-align: left;
   margin: 10px auto;
-  font-family: "Varela Round", sans-serif;
+  font-family: "Source Code Pro", monospace;
   transition: font-size .6s, height .6s; }
 
 h3 {
@@ -164,7 +163,10 @@ section.intro label {
     width: 200px; }
     section.intro label input + p {
       font-weight: 100;
-      color: lime; }
+      color: lime;
+      transition: color .4s; }
+      section.intro label input + p.weak {
+        color: crimson; }
   section.intro label input[type="text"] {
     width: 208px;
     padding: 5px;
@@ -182,7 +184,8 @@ section.intro label {
       display: -o-flex;
       display: flex;
       justify-content: space-between;
-      align-items: center; }
+      align-items: center;
+      font-weight: bold; }
     section.intro label .labels.radio {
       width: 200px; }
 

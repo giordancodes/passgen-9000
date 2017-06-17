@@ -3,6 +3,7 @@
 $varela: 'Varela Round', sans-serif;
 $lato: 'Lato', sans-serif;
 $opensans: 'Open Sans', sans-serif;
+$sourcecode: 'Source Code Pro', monospace;
 
 // PARENT ELEMENTS
 html, body{
@@ -55,10 +56,10 @@ input{
 h1{
 	font-size: 13vw;
 	color: #444;
-	text-align: center;
-	text-shadow: -2px -2px lime;
+	text-align: left;
+	// text-shadow: -2px -2px #eee;
 	margin: 10px auto;
-	font-family: $varela;
+	font-family: $sourcecode;
 	transition: font-size .6s, height .6s;
 }
 h3{
@@ -131,6 +132,10 @@ section.intro{
 			& + p{
 				font-weight: 100;
 				color: lime;
+				transition: color .4s;
+				&.weak{
+					color: crimson;
+				}
 			}
 		}
 		input[type="text"]{
@@ -152,6 +157,7 @@ section.intro{
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
+				font-weight: bold;
 			}
 			&.radio{
 				width: 200px;
