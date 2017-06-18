@@ -12,6 +12,7 @@ html, body{
 }
 a{
 	filter: brightness(80%);
+	transition: filter .4s;
 	&:focus, &:hover{
 		cursor: pointer;
 		filter: blur(2px) brightness(100%);
@@ -54,7 +55,7 @@ input{
 .wrapper{
 	margin: 0 auto;
 	padding: 0 20px;
-	max-width: 800px;
+	max-width: 1800px;
 }
 // TEXT
 h1{
@@ -86,20 +87,20 @@ p{
 }
 // ANIMATION-RELATED STYLES
 .full-screen{
-	transition: font-size 1s, height .7s;
+	transition: font-size 1s, height 1.6s;
 	height: 100vh;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 12vw;
+	flex-direction: column;
+}
+.begin{
+	color: lime;
 }
 #pass-gen-form{
 	transition: opacity .8s ease-in;
-	opacity: 0;
+	// opacity: 0;
 }
 // ICONS
 .icons{
@@ -114,20 +115,16 @@ p{
 .fa-times{
 	color: crimson;
 }
-// SECTIONS
+// INTRO - FORM
 section.intro{
+	width: 90vw;
+	max-width: 1200px;
 	hr{
 		color: #339;
 		border-width: .8vh;
 	}
 	label{
-		// display: -webkit-flex;
-		// display: -moz-flex;
-		// display: -ms-flex;
-		// display: -o-flex;
-		// display: flex;
-		// align-items: center;
-		// justify-content: space-between;
+		margin-top: 80px;
 		p{
 			font-size: 2em;
 		}
@@ -184,6 +181,16 @@ section.intro{
 			text-align: right;
 		}
 	} 
+}
+label[for="distinct"]{
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+#distinct{
+	width: 30vw;
+	color: white;
+	font-family: $sourcecode;
 }
 
 section.result{

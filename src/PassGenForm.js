@@ -24,7 +24,13 @@ class PassGenForm extends Component{
 		    						next={ this.props.next }
                 		prev={ this.props.prev } />
 
-    		<Aesthetic 	aesthetic={ this.props.aesthetic }
+				<Distinct form={ this.props.form }
+											updateField={ this.props.updateField }
+											dLength={ this.props.dLength }
+											next={ this.props.next }
+											prev={ this.props.prev } />
+
+    		{/*<Aesthetic 	aesthetic={ this.props.aesthetic }
 		    						aestheticDesc={ this.props.aestheticDesc }
 		    						updateCheck={ this.props.updateCheck }
 		    						next={ this.props.next }
@@ -38,7 +44,7 @@ class PassGenForm extends Component{
 											next={ this.props.next }
 											prev={ this.props.prev } />
 						: null
-				}
+				}*/}
 				
 			  <Generate genPass={ this.props.genPass } />
 

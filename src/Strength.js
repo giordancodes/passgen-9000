@@ -16,8 +16,8 @@ class Strength extends Component{
 									id="strength" />
 					<p className={ this.props.strengthDesc[1] }>
 						{ this.props.strengthDesc[0] }%
-						<Icons  next={ this.props.next }
-										prev={ this.props.prev } />
+						{/*<Icons  next={ this.props.next }
+										prev={ this.props.prev } />*/}
 					</p>
 				</div>
 			</label>

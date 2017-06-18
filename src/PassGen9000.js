@@ -27,6 +27,7 @@ class PassGen9000 extends Component {
 			strengthDesc: [null ,"medium"],
 			generatedResult: null,
 			error: null,
+			hasBegun: false,
 			currentStep: 1,
 			vanillaResult: null,
 			dLength: 0
@@ -36,7 +37,7 @@ class PassGen9000 extends Component {
 	render() {
 		return (
 			<div className="full-page">
-				<Heading />
+				<Heading begin={ this.state.begin } />
 				<div className="wrapper">
 					<section className="intro">
 						
@@ -72,19 +73,27 @@ class PassGen9000 extends Component {
 	componentDidMount() { 
 		let l = this.state.form.length;
 		let r = this.state.form.strength;
-		this.introAnimation();
+		// this.introAnimation();
 		this.updateDesc();
 		this.setState({ indexesToSubstitute: Math.floor(l * (r * .12)) })
 	}
 
 	introAnimation(){
-		setTimeout(() => { document.getElementById("title").style.fontSize = "9vw" }, 500);
-		setTimeout(() => { document.getElementById("title").style.height = "2vw" }, 500);
-		setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 500);
+		setTimeout(() => { document.getElementById("title").style.fontSize = "9vw" }, 1500);
+		setTimeout(() => { document.getElementById("title").style.height = "2vw" }, 1500);
+		setTimeout(() => { document.getElementById("title").style.padding = "42px 0" }, 1500);
 		// inputs
-		setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 500);
+		setTimeout(() => { document.getElementById("pass-gen-form").style.opacity = "1" }, 1500);
 	}
 
+	begin = () =>{
+		let hasBegun = this.state.hasBegun;
+		hasBegun = !hasBegun;
+
+		console.log('hasBegun');
+		this.setState({ hasBegun });
+
+	}
 	updateField = (e) =>{
 		let form = this.state.form;
 		form[e.target.id] = e.target.value;
@@ -125,7 +134,7 @@ class PassGen9000 extends Component {
 		strengthDesc[0] = `${r * 20}`;
 
 		for (let property of lengthDesc) {
-			if (property < 12) {
+			if (property < 14) {
 				lengthDesc[1] = "weak";
 			} else if (property > 11 && property < 20) {
 				lengthDesc[1] = "medium";
@@ -172,8 +181,8 @@ class PassGen9000 extends Component {
 		e.preventDefault();
 
 		let currentStep = this.state.currentStep + 1;
-		if (currentStep > 5){
-			currentStep = 5;
+		if (currentStep > 2){
+			currentStep = 2;
 		}
 		this.setState({ currentStep }, this.transition());
 	}

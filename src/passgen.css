@@ -72,7 +72,8 @@ html, body {
   font-family: "Lato", sans-serif; }
 
 a {
-  filter: brightness(80%); }
+  filter: brightness(80%);
+  transition: filter .4s; }
   a:focus, a:hover {
     cursor: pointer;
     filter: blur(2px) brightness(100%); }
@@ -94,7 +95,7 @@ input {
 .wrapper {
   margin: 0 auto;
   padding: 0 20px;
-  max-width: 800px; }
+  max-width: 1800px; }
 
 h1 {
   font-size: 13vw;
@@ -123,20 +124,19 @@ p {
   margin: 32px 0; }
 
 .full-screen {
-  transition: font-size 1s, height .7s;
+  transition: font-size 1s, height 1.6s;
   height: 100vh;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12vw; }
+  font-size: 12vw;
+  flex-direction: column; }
+
+.begin {
+  color: lime; }
 
 #pass-gen-form {
-  transition: opacity .8s ease-in;
-  opacity: 0; }
+  transition: opacity .8s ease-in; }
 
 .icons {
   font-size: 24px; }
@@ -149,53 +149,63 @@ p {
 .fa-times {
   color: crimson; }
 
-section.intro hr {
-  color: #339;
-  border-width: .8vh; }
+section.intro {
+  width: 90vw;
+  max-width: 1200px; }
+  section.intro hr {
+    color: #339;
+    border-width: .8vh; }
+  section.intro label {
+    margin-top: 80px; }
+    section.intro label p {
+      font-size: 2em; }
+    section.intro label input {
+      width: 100%; }
+      section.intro label input + p {
+        font-weight: 100;
+        transition: color .4s; }
+        section.intro label input + p.weak {
+          color: crimson; }
+        section.intro label input + p.medium {
+          color: yellow; }
+        section.intro label input + p.strong {
+          color: lime; }
+    section.intro label input[type="text"] {
+      width: 208px;
+      padding: 5px;
+      font-size: 24px;
+      background: #444; }
+    section.intro label .labels {
+      position: relative; }
+      section.intro label .labels p {
+        width: 95%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold; }
+      section.intro label .labels.radio {
+        width: 200px; }
+  section.intro .range-count {
+    display: inline-flex; }
+    section.intro .range-count > * {
+      padding: 0 8px 0 10px; }
+    section.intro .range-count p {
+      width: 24px;
+      text-align: right; }
 
-section.intro label p {
-  font-size: 2em; }
+label[for="distinct"] {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between; }
 
-section.intro label input {
-  width: 100%; }
-  section.intro label input + p {
-    font-weight: 100;
-    transition: color .4s; }
-    section.intro label input + p.weak {
-      color: crimson; }
-    section.intro label input + p.medium {
-      color: yellow; }
-    section.intro label input + p.strong {
-      color: lime; }
-
-section.intro label input[type="text"] {
-  width: 208px;
-  padding: 5px;
-  font-size: 24px;
-  background: #444; }
-
-section.intro label .labels {
-  position: relative; }
-  section.intro label .labels p {
-    width: 95%;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold; }
-  section.intro label .labels.radio {
-    width: 200px; }
-
-section.intro .range-count {
-  display: inline-flex; }
-  section.intro .range-count > * {
-    padding: 0 8px 0 10px; }
-  section.intro .range-count p {
-    width: 24px;
-    text-align: right; }
+#distinct {
+  width: 30vw;
+  color: white;
+  font-family: "Source Code Pro", monospace; }
 
 section.result h4 {
   font-weight: 100; }

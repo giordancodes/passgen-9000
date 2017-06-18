@@ -16,8 +16,8 @@ class Length extends Component{
                   id="length" />
           <p className={ this.props.lengthDesc[1] }>
             { this.props.lengthDesc[0] } 
-            <Icons  next={ this.props.next }
-                    prev={ this.props.prev } />
+            {/*<Icons  next={ this.props.next }
+                    prev={ this.props.prev } />*/}
           </p>
         </div>
       </label>

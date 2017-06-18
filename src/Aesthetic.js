@@ -6,9 +6,7 @@ class Aesthetic extends Component{
 	render(){
 		return(
 			<label htmlFor="aesthetic">
-			
-				<p className="main-label">aesthetic</p>
-				
+							
 				<div className="labels radio">
 
 					<input  type="checkbox"
@@ -21,8 +19,8 @@ class Aesthetic extends Component{
 
 					<p>
 						{ this.props.aestheticDesc }
-						<Icons  next={ this.props.next }
-										prev={ this.props.prev } />
+						{/*<Icons  next={ this.props.next }
+										prev={ this.props.prev } />*/}
 					</p>
 
 				</div>
